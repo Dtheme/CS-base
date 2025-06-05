@@ -71,8 +71,8 @@
 | $\sinh x$ | $x$ | $\sinh x = \frac{e^x - e^{-x}}{2}$ | ⭐⭐⭐ |
 | $\tanh x$ | $x$ | $\tanh x = \frac{\sinh x}{\cosh x}$ | ⭐⭐⭐ |
 | $\cosh x - 1$ | $\frac{1}{2}x^2$ | $\cosh x = \frac{e^x + e^{-x}}{2}$ | ⭐⭐⭐ |
-| $\operatorname{arcsinh} x$ | $x$ | 反双曲正弦 | ⭐⭐ |
-| $\operatorname{arctanh} x$ | $x$ | 反双曲正切，$\|x\| < 1$ | ⭐⭐ |
+| $\text{arcsinh} x$ | $x$ | 反双曲正弦 | ⭐⭐ |
+| $\text{arctanh} x$ | $x$ | 反双曲正切，$\|x\| < 1$ | ⭐⭐ |
 
 ### 1.2 高阶等价无穷小（差值形式）
 
@@ -272,15 +272,15 @@
 | **反三角函数** | $\arcsin x$ | $\frac{1}{\sqrt{1-x^2}}$ | $x \in (-1, 1)$ | 根号里1减平方 |
 | | $\arccos x$ | $-\frac{1}{\sqrt{1-x^2}}$ | $x \in (-1, 1)$ | 负反正弦导数 |
 | | $\arctan x$ | $\frac{1}{1+x^2}$ | $\mathbb{R}$ | 分母1加平方 |
-| | $\operatorname{arccot} x$ | $-\frac{1}{1+x^2}$ | $\mathbb{R}$ | 负反正切导数 |
-| | $\operatorname{arcsec} x$ | $\frac{1}{\|x\|\sqrt{x^2-1}}$ | $\|x\| > 1$ | 含绝对值 |
-| | $\operatorname{arccsc} x$ | $-\frac{1}{\|x\|\sqrt{x^2-1}}$ | $\|x\| > 1$ | 负反正割导数 |
+| | $\text{arccot} x$ | $-\frac{1}{1+x^2}$ | $\mathbb{R}$ | 负反正切导数 |
+| | $\text{arcsec} x$ | $\frac{1}{\|x\|\sqrt{x^2-1}}$ | $\|x\| > 1$ | 含绝对值 |
+| | $\text{arccsc} x$ | $-\frac{1}{\|x\|\sqrt{x^2-1}}$ | $\|x\| > 1$ | 负反正割导数 |
 | **双曲函数** | $\sinh x$ | $\cosh x$ | $\mathbb{R}$ | 双曲正弦变余弦 |
 | | $\cosh x$ | $\sinh x$ | $\mathbb{R}$ | 双曲余弦变正弦 |
 | | $\tanh x$ | $\frac{1}{\cosh^2 x}$ | $\mathbb{R}$ | 双曲余弦平方倒数 |
-| **反双曲函数** | $\operatorname{arcsinh} x$ | $\frac{1}{\sqrt{x^2+1}}$ | $\mathbb{R}$ | 根号里平方加1 |
-| | $\operatorname{arccosh} x$ | $\frac{1}{\sqrt{x^2-1}}$ | $x > 1$ | 根号里平方减1 |
-| | $\operatorname{arctanh} x$ | $\frac{1}{1-x^2}$ | $\|x\| < 1$ | 分母1减平方 |
+| **反双曲函数** | $\text{arcsinh} x$ | $\frac{1}{\sqrt{x^2+1}}$ | $\mathbb{R}$ | 根号里平方加1 |
+| | $\text{arccosh} x$ | $\frac{1}{\sqrt{x^2-1}}$ | $x > 1$ | 根号里平方减1 |
+| | $\text{arctanh} x$ | $\frac{1}{1-x^2}$ | $\|x\| < 1$ | 分母1减平方 |
 
 ### 记忆口诀
 
@@ -288,7 +288,7 @@
 > 
 > **反三角函数导数**："根号里1减方，分母里1加方"
 > 
-> **反三角函数符号**："$\arcsin$和$\arctan$为正，$\arccos$和$\operatorname{arccot}$为负"
+> **反三角函数符号**："$\arcsin$和$\arctan$为正，$\arccos$和$\text{arccot}$为负"
 > 
 > **双曲函数导数**："双曲正弦变余弦，双曲余弦变正弦"
 
@@ -357,7 +357,7 @@
 | $\frac{1}{1+x^2}$ | $\arctan x + C$ | $\mathbb{R}$ | 反正切原型 |
 | $\frac{1}{\sqrt{a^2-x^2}}$ | $\arcsin \frac{x}{a} + C$ | $\|x\| < a$ | 含参数反正弦 |
 | $\frac{1}{a^2+x^2}$ | $\frac{1}{a}\arctan \frac{x}{a} + C$ | $a \neq 0$ | 含参数反正切 |
-| $\frac{1}{x\sqrt{x^2-a^2}}$ | $\frac{1}{a}\operatorname{arcsec}\frac{\|x\|}{a} + C$ | $\|x\| > a$ | 反正割形式 |
+| $\frac{1}{x\sqrt{x^2-a^2}}$ | $\frac{1}{a}\text{arcsec}\frac{\|x\|}{a} + C$ | $\|x\| > a$ | 反正割形式 |
 
 ### 4.4 根式积分
 
@@ -387,9 +387,9 @@
 | $\sinh x$ | $\cosh x + C$ | 双曲正弦积分双曲余弦 |
 | $\cosh x$ | $\sinh x + C$ | 双曲余弦积分双曲正弦 |
 | $\tanh x$ | $\ln(\cosh x) + C$ | 双曲正切积分对数双曲余弦 |
-| $\operatorname{coth} x$ | $\ln\|\sinh x\| + C$ | 双曲余切积分对数双曲正弦 |
-| $\operatorname{sech}^2 x$ | $\tanh x + C$ | 双曲正割平方积分双曲正切 |
-| $\operatorname{csch}^2 x$ | $-\operatorname{coth} x + C$ | 双曲余割平方积分负双曲余切 |
+| $\text{coth} x$ | $\ln\|\sinh x\| + C$ | 双曲余切积分对数双曲正弦 |
+| $\text{sech}^2 x$ | $\tanh x + C$ | 双曲正割平方积分双曲正切 |
+| $\text{csch}^2 x$ | $-\text{coth} x + C$ | 双曲余割平方积分负双曲余切 |
 
 ---
 
