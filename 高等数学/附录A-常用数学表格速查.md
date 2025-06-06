@@ -211,7 +211,7 @@
 | $\lim_{n \to \infty} \frac{a^n}{n!}$ | $0$ | 阶乘增长比指数快 | ⭐⭐⭐⭐ |
 | $\lim_{n \to \infty} \frac{n^k}{a^n}$ | $0$ | $a > 1$，指数增长比幂快 | ⭐⭐⭐⭐ |
 | $\lim_{n \to \infty} \frac{\ln n}{n}$ | $0$ | 对数增长比线性慢 | ⭐⭐⭐⭐ |
-| $\lim_{n \to \infty} \left(1+\frac{a}{n}\right)^n$ | $e^a$ | 一般化的$e$定义 | ⭐⭐⭐⭐ |
+| $\lim_{n \to \infty} \left(1+\frac{a}{n}\right)^n$ | $e^a$ | 一般化的 $e$定义 | ⭐⭐⭐⭐ |
 | $\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^{n+a}$ | $e$ | 指数修正 | ⭐⭐⭐ |
 | $\lim_{n \to \infty} \frac{\sin n}{n}$ | $0$ | 有界函数除无穷大 | ⭐⭐⭐ |
 
