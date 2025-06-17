@@ -95,8 +95,8 @@
 
 | 函数 | 等价无穷小 | 复合规律 |
 |:----:|:----------:|:--------|
-| $\sin(\tan x)$ | $x$ | 内外层都$\sim x$ |
-| $\tan(\sin x)$ | $x$ | 内外层都$\sim x$ |
+| $\sin(\tan x)$ | $x$ | 内外层都 $\sim x$ |
+| $\tan(\sin x)$ | $x$ | 内外层都 $\sim x$ |
 | $e^{\sin x} - 1$ | $x$ | $\sin x \sim x$ |
 | $\ln(1 + \tan x)$ | $x$ | $\tan x \sim x$ |
 | $e^{x^2} - 1$ | $x^2$ | 复合幂次 |
@@ -134,7 +134,7 @@
 #### **高频考点：含系数的和形式**
 | 函数 | 等价无穷小 | 考试重点 |
 |:----:|:----------:|:--------|
-| $a\sin x + bx$ | $(a+b)x$ | $a,b$为常数 |
+| $a\sin x + bx$ | $(a+b)x$ | $a,b$ 为常数 |
 | $\sin x + 2x$ | $3x$ | 系数求和 |
 | $\tan x + 3x$ | $4x$ | 系数求和 |
 | $\sin x + \cos x$ | $1 + x$ | 常数项占主导 |
@@ -148,12 +148,12 @@
 |:----:|:----------:|:--------|
 | $\sin x + \sin 2x$ | $3x$ | $\sin 2x \sim 2x$ |
 | $\tan x + \tan 3x$ | $4x$ | $\tan 3x \sim 3x$ |
-| $\sin x + \sin x^2$ | $x$ | 忽略高阶$x^2$项 |
+| $\sin x + \sin x^2$ | $x$ | 忽略高阶 $x^2$ 项 |
 | $\cos x + \cos 2x$ | $2$ | 两个常数项 |
 
 ### 1.6 变量替换的等价无穷小
 
-#### **$x \to \infty$ 时的等价无穷小**
+#### ** $x \to \infty$ 时的等价无穷小**
 | 函数 | 等价无穷小 | 变换说明 |
 |:----:|:----------:|:--------|
 | $\arctan x - \frac{\pi}{2}$ | $-\frac{1}{x}$ | $x \to +\infty$ |
@@ -175,7 +175,7 @@
 | 情况 | 处理方法 | 举例 |
 |:----:|:--------:|:-----|
 | 主项相同 | 直接相加 | $\sin x + x \sim x + x = 2x$ |
-| 主项不同阶 | 保留低阶项 | $x + x^2 \sim x$（当$x \to 0$） |
+| 主项不同阶 | 保留低阶项 | $x + x^2 \sim x$ （当 $x \to 0$） |
 | 需要精确计算 | 用泰勒展开 | 复杂的和差形式 |
 
 #### **常见错误与正确方法**
@@ -213,7 +213,7 @@
 | $\lim_{n \to \infty} \frac{a^n}{n!}$ | $0$ | 阶乘增长比指数快 | ⭐⭐⭐⭐ |
 | $\lim_{n \to \infty} \frac{n^k}{a^n}$ | $0$ | $a > 1$，指数增长比幂快 | ⭐⭐⭐⭐ |
 | $\lim_{n \to \infty} \frac{\ln n}{n}$ | $0$ | 对数增长比线性慢 | ⭐⭐⭐⭐ |
-| $\lim_{n \to \infty} \left(1+\frac{a}{n}\right)^n$ | $e^a$ | 一般化的$e$定义 | ⭐⭐⭐⭐ |
+| $\lim_{n \to \infty} \left(1+\frac{a}{n}\right)^n$ | $e^a$ | 一般化的 $e$ 定义 | ⭐⭐⭐⭐ |
 | $\lim_{n \to \infty} \left(1+\frac{1}{n}\right)^{n+a}$ | $e$ | 指数修正 | ⭐⭐⭐ |
 | $\lim_{n \to \infty} \frac{\sin n}{n}$ | $0$ | 有界函数除无穷大 | ⭐⭐⭐ |
 
@@ -230,18 +230,18 @@
 
 ### 2.4 特殊类型极限
 
-#### **$1^{\infty}$ 型极限**
+#### ** $1^{\infty}$ 型极限**
 | 极限形式 | 计算方法 | 结果 |
 |---------|----------|------|
 | $\lim_{x \to 0} (1+x)^{\frac{1}{x}}$ | 直接应用定义 | $e$ |
 | $\lim_{x \to 0} (1+ax)^{\frac{1}{bx}}$ | 变量替换 | $e^{\frac{a}{b}}$ |
 | $\lim_{x \to a} [f(x)]^{g(x)}$ | $e^{\lim_{x \to a} g(x)\ln f(x)}$ | 指数对数法 |
 
-#### **$\frac{\infty}{\infty}$ 型极限**
+#### ** $\frac{\infty}{\infty}$ 型极限**
 | 极限 | 值 | 记忆要点 |
 |------|----|----|
-| $\lim_{x \to \infty} \frac{P_n(x)}{Q_m(x)}$ | 首项系数比（ $n=m$），0（ $n<m$）， $\infty$（ $n>m$） | 多项式比值 |
-| $\lim_{x \to \infty} \frac{a_n x^n + \cdots}{b_m x^m + \cdots}$ | $\frac{a_n}{b_m}$（ $n=m$） | 只看最高次项 |
+| $\lim_{x \to \infty} \frac{P_n(x)}{Q_m(x)}$ | 首项系数比（ $n=m$），0（ $n<m$）， $\infty$ （ $n>m$） | 多项式比值 |
+| $\lim_{x \to \infty} \frac{a_n x^n + \cdots}{b_m x^m + \cdots}$ | $\frac{a_n}{b_m}$ （ $n=m$） | 只看最高次项 |
 
 ### 2.5 三角函数相关极限
 
@@ -273,7 +273,7 @@
 | $\lim_{x \to +\infty} \frac{\ln x}{\sqrt{x}}$ | $0$ | 对数增长慢于任意正次幂 |
 | $\lim_{x \to +\infty} \frac{x^{100}}{2^x}$ | $0$ | 指数函数增长快于任意幂函数 |
 | $\lim_{x \to +\infty} \frac{(\ln x)^{10}}{x^{0.01}}$ | $0$ | 高次对数仍慢于低次幂 |
-| $\lim_{x \to +\infty} x^a e^{-x}$ | $0$ | 指数衰减占主导，$a > 0$ |
+| $\lim_{x \to +\infty} x^a e^{-x}$ | $0$ | 指数衰减占主导， $a > 0$ |
 | $\lim_{n \to \infty} \frac{2^n}{n!}$ | $0$ | 阶乘增长快于指数 |
 
 #### **指数对数型极限**
@@ -282,8 +282,8 @@
 | $\lim_{x \to 0^+} x^x$ | $1$ | $0^0$ 型 | 取对数： $\lim x \ln x = 0$ |
 | $\lim_{x \to +\infty} x^{1/x}$ | $1$ | $\infty^0$ 型 | 取对数： $\lim \frac{\ln x}{x} = 0$ |
 | $\lim_{x \to 0^+} (\sin x)^x$ | $1$ | $0^0$ 型 | 取对数转化 |
-| $\lim_{x \to 1} x^{1/(x-1)}$ | $e$ | $1^{\infty}$ 型 | 标准$1^{\infty}$型 |
-| $\lim_{x \to \infty} \left(1 + \frac{a}{x}\right)^{bx}$ | $e^{ab}$ | $1^{\infty}$ 型 | 广义$e$的定义 |
+| $\lim_{x \to 1} x^{1/(x-1)}$ | $e$ | $1^{\infty}$ 型 | 标准 $1^{\infty}$ 型 |
+| $\lim_{x \to \infty} \left(1 + \frac{a}{x}\right)^{bx}$ | $e^{ab}$ | $1^{\infty}$ 型 | 广义 $e$ 的定义 |
 
 #### **三角函数高阶极限**
 | 极限 | 值 | 阶数 | 技巧 |
@@ -307,7 +307,7 @@
 | 函数性质 | 极限结论 | 应用场景 |
 |---------|----------|----------|
 | **单调有界** | 必有极限 | 数列极限存在性 |
-| **周期函数** | $\lim_{x \to \infty} \frac{f(x)}{x} = 0$ | $f$有界周期函数 |
+| **周期函数** | $\lim_{x \to \infty} \frac{f(x)}{x} = 0$ | $f$ 有界周期函数 |
 | **间断点** | 左右极限存在但不等 | 可去、跳跃、无穷间断 |
 | **渐近线** | $y = ax + b$ 当 $\lim_{x \to \infty} \frac{f(x)}{x} = a$ | 斜渐近线判定 |
 
@@ -334,11 +334,11 @@
 | 函数类型 | 函数 | 导数 | 定义域限制 | 记忆技巧 |
 |---------|------|------|-----------|----------|
 | **常数函数** | $C$ | $0$ | $\mathbb{R}$ | 常数导数为零 |
-| **幂函数** | $x^α$ | $αx^{α-1}$ | $x > 0$（当$α \leq 0$时） | 指数降一次，系数为原指数 |
-| **指数函数** | $e^x$ | $e^x$ | $\mathbb{R}$ | $e^x$求导不变 |
-| | $a^x$ | $a^x \ln a$ | $\mathbb{R}$， $a > 0$， $a \neq 1$ | 多乘$\ln a$ |
+| **幂函数** | $x^α$ | $αx^{α-1}$ | $x > 0$ （当 $α \leq 0$ 时） | 指数降一次，系数为原指数 |
+| **指数函数** | $e^x$ | $e^x$ | $\mathbb{R}$ | $e^x$ 求导不变 |
+| | $a^x$ | $a^x \ln a$ | $\mathbb{R}$， $a > 0$， $a \neq 1$ | 多乘 $\ln a$ |
 | **对数函数** | $\ln x$ | $\frac{1}{x}$ | $x > 0$ | 倒数关系 |
-| | $\log_a x$ | $\frac{1}{x \ln a}$ | $x > 0$， $a > 0$， $a \neq 1$ | 多除$\ln a$ |
+| | $\log_a x$ | $\frac{1}{x \ln a}$ | $x > 0$， $a > 0$， $a \neq 1$ | 多除 $\ln a$ |
 | **三角函数** | $\sin x$ | $\cos x$ | $\mathbb{R}$ | 正变余 |
 | | $\cos x$ | $-\sin x$ | $\mathbb{R}$ | 余变负正 |
 | | $\tan x$ | $\sec^2 x = \frac{1}{\cos^2 x}$ | $x \neq \frac{\pi}{2} + k\pi$ | 正切平方加一 |
@@ -364,7 +364,7 @@
 > 
 > **反三角函数导数**："根号里1减方，分母里1加方"
 > 
-> **反三角函数符号**："$\arcsin$和$\arctan$为正， $\arccos$和$\text{arccot}$为负"
+> **反三角函数符号**："$\arcsin$ 和$\arctan$ 为正， $\arccos$ 和$\text{arccot}$ 为负"
 > 
 > **双曲函数导数**："双曲正弦变余弦，双曲余弦变正弦"
 
@@ -381,8 +381,8 @@
 | **常数与幂** | $k$ (常数) | $kx + C$ | $\mathbb{R}$ | 常数积分 |
 | | $x^n$ | $\frac{x^{n+1}}{n+1} + C$ | $n \neq -1$ | 指数加1除以新指数 |
 | | $\frac{1}{x^n}$ | $\frac{x^{1-n}}{1-n} + C$ | $n \neq 1, x \neq 0$ | 负指数幂 |
-| **指数对数** | $e^x$ | $e^x + C$ | $\mathbb{R}$ | $e^x$积分不变 |
-| | $a^x$ | $\frac{a^x}{\ln a} + C$ | $a > 0, a \neq 1$ | 除以$\ln a$ |
+| **指数对数** | $e^x$ | $e^x + C$ | $\mathbb{R}$ | $e^x$ 积分不变 |
+| | $a^x$ | $\frac{a^x}{\ln a} + C$ | $a > 0, a \neq 1$ | 除以 $\ln a$ |
 | | $e^{ax}$ | $\frac{1}{a}e^{ax} + C$ | $a \neq 0$ | 系数倒数 |
 | | $\frac{1}{x}$ | $\ln\|x\| + C$ | $x \neq 0$ | 对数积分 |
 
@@ -503,7 +503,7 @@
 | $\cos \frac{α}{2}$ | $\pm\sqrt{\frac{1+\cos α}{2}}$ | |
 | $\tan \frac{α}{2}$ | $\pm\sqrt{\frac{1-\cos α}{1+\cos α}}$ | $\frac{1-\cos α}{\sin α} = \frac{\sin α}{1+\cos α}$ |
 
-> 符号由$\frac{α}{2}$所在象限决定
+> 符号由 $\frac{α}{2}$ 所在象限决定
 
 ### 5.7 万能公式（半角替换）
 
@@ -536,13 +536,13 @@
 | 函数类型 | 函数 | n阶导数 | 适用条件 | 记忆技巧 |
 |---------|------|---------|----------|----------|
 | **幂函数** | $x^m$ | $\frac{m!}{(m-n)!}x^{m-n}$ | $n \leq m$，否则为0 | 阶乘公式 |
-| **指数函数** | $e^{ax}$ | $a^n e^{ax}$ | $n \geq 0$ | 每求导乘$a$ |
-| | $a^x$ | $a^x (\ln a)^n$ | $a > 0, a \neq 1$ | 乘$(\ln a)^n$ |
+| **指数函数** | $e^{ax}$ | $a^n e^{ax}$ | $n \geq 0$ | 每求导乘 $a$ |
+| | $a^x$ | $a^x (\ln a)^n$ | $a > 0, a \neq 1$ | 乘 $(\ln a)^n$ |
 | **对数函数** | $\ln x$ | $\frac{(-1)^{n-1}(n-1)!}{x^n}$ | $n \geq 1, x > 0$ | 符号交替，阶乘递减 |
-| **三角函数** | $\sin x$ | $\sin(x + \frac{n\pi}{2})$ | $n \geq 0$ | 相位增$\frac{n\pi}{2}$ |
-| | $\cos x$ | $\cos(x + \frac{n\pi}{2})$ | $n \geq 0$ | 相位增$\frac{n\pi}{2}$ |
-| **双曲函数** | $\sinh x$ | $\sinh x$或$\cosh x$ | 取决于$n$的奇偶性 | 周期为2 |
-| | $\cosh x$ | $\cosh x$或$\sinh x$ | 取决于$n$的奇偶性 | 周期为2 |
+| **三角函数** | $\sin x$ | $\sin(x + \frac{n\pi}{2})$ | $n \geq 0$ | 相位增 $\frac{n\pi}{2}$ |
+| | $\cos x$ | $\cos(x + \frac{n\pi}{2})$ | $n \geq 0$ | 相位增 $\frac{n\pi}{2}$ |
+| **双曲函数** | $\sinh x$ | $\sinh x$ 或$\cosh x$ | 取决于 $n$ 的奇偶性 | 周期为2 |
+| | $\cosh x$ | $\cosh x$ 或$\sinh x$ | 取决于 $n$ 的奇偶性 | 周期为2 |
 
 ### 有理函数n阶导数表
 
@@ -550,7 +550,7 @@
 |---------|------|-------------|----------|
 | **基本分式** | $\frac{1}{x-a}$ | $\frac{(-1)^n n!}{(x-a)^{n+1}}$ | 符号交替，阶乘分子 |
 | **幂次分式** | $\frac{1}{(x-a)^m}$ | $\frac{(-1)^n (m+n-1)!}{(m-1)!(x-a)^{m+n}}$ | 组合数形式 |
-| **线性复合** | $\frac{1}{ax+b}$ | $\frac{(-1)^n n! a^n}{(ax+b)^{n+1}}$ | 多乘$a^n$ |
+| **线性复合** | $\frac{1}{ax+b}$ | $\frac{(-1)^n n! a^n}{(ax+b)^{n+1}}$ | 多乘 $a^n$ |
 
 ---
 
@@ -605,8 +605,8 @@
 | 积分类型 | 积分公式 | 条件 | 应用 |
 |---------|----------|------|------|
 | **华里士积分** | $\int_0^{\frac{\pi}{2}} \sin^n x \, dx = \int_0^{\frac{\pi}{2}} \cos^n x \, dx$ | $n \geq 0$ | 递推积分 |
-| $n$为偶数 | $\frac{(n-1)!!}{n!!} \cdot \frac{\pi}{2}$ | $n = 2k$ | 结果含$\pi$ |
-| $n$为奇数 | $\frac{(n-1)!!}{n!!}$ | $n = 2k+1$ | 结果为有理数 |
+| $n$ 为偶数 | $\frac{(n-1)!!}{n!!} \cdot \frac{\pi}{2}$ | $n = 2k$ | 结果含 $\pi$ |
+| $n$ 为奇数 | $\frac{(n-1)!!}{n!!}$ | $n = 2k+1$ | 结果为有理数 |
 | **伽马函数积分** | $\int_0^{\infty} x^{p-1} e^{-x} dx = \Gamma(p)$ | $p > 0$ | 伽马函数定义 |
 | **贝塔函数积分** | $\int_0^1 x^{p-1}(1-x)^{q-1} dx = B(p,q)$ | $p,q > 0$ | 贝塔函数定义 |
 
@@ -615,7 +615,7 @@
 | 积分 | 结果 | 条件 | 技巧 |
 |------|------|------|------|
 | $\int_0^{\pi} x\sin x \, dx$ | $\pi$ | 定积分 | 分部积分 |
-| $\int_0^{\pi} \frac{\sin nx}{\sin x} dx$ | $\pi$ | $n$为正整数 | 特殊性质 |
+| $\int_0^{\pi} \frac{\sin nx}{\sin x} dx$ | $\pi$ | $n$ 为正整数 | 特殊性质 |
 | $\int_0^{\infty} \frac{\sin x}{x} dx$ | $\frac{\pi}{2}$ | 狄利克雷积分 | 含参积分 |
 | $\int_0^{\infty} \frac{\sin^2 x}{x^2} dx$ | $\frac{\pi}{2}$ | 经典积分 | 分部积分+含参 |
 | $\int_0^{\infty} e^{-x^2} dx$ | $\frac{\sqrt{\pi}}{2}$ | 高斯积分 | 极坐标变换 |
@@ -646,9 +646,9 @@
 
 | 函数类型 | 二阶偏导数 | 混合偏导数 |
 |---------|------------|------------|
-| $f(x,y) = x^m y^n$ | $f_{xx} = m(m-1)x^{m-2}y^n$<br>$f_{yy} = n(n-1)x^m y^{n-2}$ | $f_{xy} = f_{yx} = mnx^{m-1}y^{n-1}$ |
-| $f(x,y) = e^{ax+by}$ | $f_{xx} = a^2 e^{ax+by}$<br>$f_{yy} = b^2 e^{ax+by}$ | $f_{xy} = f_{yx} = ab e^{ax+by}$ |
-| $f(x,y) = \ln(ax+by)$ | $f_{xx} = -\frac{a^2}{(ax+by)^2}$<br>$f_{yy} = -\frac{b^2}{(ax+by)^2}$ | $f_{xy} = f_{yx} = -\frac{ab}{(ax+by)^2}$ |
+| $f(x,y) = x^m y^n$ | $f_{xx} = m(m-1)x^{m-2}y^n$ <br> $f_{yy} = n(n-1)x^m y^{n-2}$ | $f_{xy} = f_{yx} = mnx^{m-1}y^{n-1}$ |
+| $f(x,y) = e^{ax+by}$ | $f_{xx} = a^2 e^{ax+by}$ <br> $f_{yy} = b^2 e^{ax+by}$ | $f_{xy} = f_{yx} = ab e^{ax+by}$ |
+| $f(x,y) = \ln(ax+by)$ | $f_{xx} = -\frac{a^2}{(ax+by)^2}$ <br> $f_{yy} = -\frac{b^2}{(ax+by)^2}$ | $f_{xy} = f_{yx} = -\frac{ab}{(ax+by)^2}$ |
 
 ### 9.3 常用坐标变换
 
@@ -656,7 +656,7 @@
 |-------|----------|-------------|
 | **极坐标** | $x = r\cos θ, y = r\sin θ$ | $J = r$ |
 | **柱坐标** | $x = r\cos θ, y = r\sin θ, z = z$ | $J = r$ |
-| **球坐标** | $x = r\sin φ\cos θ$<br>$y = r\sin φ\sin θ$<br>$z = r\cos φ$ | $J = r^2\sin φ$ |
+| **球坐标** | $x = r\sin φ\cos θ$ <br> $y = r\sin φ\sin θ$ <br> $z = r\cos φ$ | $J = r^2\sin φ$ |
 
 ### 9.4 梯度、散度、旋度公式表
 
@@ -681,7 +681,7 @@
 | 积分类型 | 计算公式 | 条件 |
 |---------|----------|------|
 | $\int_L P dx + Q dy$ | $\int_a^b [P(x(t), y(t))x'(t) + Q(x(t), y(t))y'(t)] dt$ | 参数方程 |
-| **格林公式** | $\oint_L P dx + Q dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dxdy$ | $L$为$D$正向边界 |
+| **格林公式** | $\oint_L P dx + Q dy = \iint_D \left(\frac{\partial Q}{\partial x} - \frac{\partial P}{\partial y}\right) dxdy$ | $L$ 为$D$ 正向边界 |
 
 ### 10.3 第一类曲面积分
 
@@ -694,8 +694,8 @@
 
 | 公式名称 | 公式内容 | 应用条件 |
 |---------|----------|----------|
-| **高斯公式** | $\oiint_S P dydz + Q dzdx + R dxdy = \iiint_Ω \left(\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\right) dxdydz$ | $S$为$Ω$外侧 |
-| **斯托克斯公式** | $\oint_L P dx + Q dy + R dz = \iint_S \left\|\begin{array}{ccc} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ P & Q & R \end{array}\right\| \cdot d\mathbf{S}$ | $L$为$S$正向边界 |
+| **高斯公式** | $\oiint_S P dydz + Q dzdx + R dxdy = \iiint_Ω \left(\frac{\partial P}{\partial x} + \frac{\partial Q}{\partial y} + \frac{\partial R}{\partial z}\right) dxdydz$ | $S$ 为$Ω$ 外侧 |
+| **斯托克斯公式** | $\oint_L P dx + Q dy + R dz = \iint_S \left\|\begin{array}{ccc} \mathbf{i} & \mathbf{j} & \mathbf{k} \\ \frac{\partial}{\partial x} & \frac{\partial}{\partial y} & \frac{\partial}{\partial z} \\ P & Q & R \end{array}\right\| \cdot d\mathbf{S}$ | $L$ 为$S$ 正向边界 |
 
 ---
 
@@ -706,9 +706,9 @@
 | 方程类型 | 标准形式 | 解法 | 通解 |
 |---------|----------|------|------|
 | **可分离变量** | $\frac{dy}{dx} = f(x)g(y)$ | 分离变量 | $\int \frac{dy}{g(y)} = \int f(x) dx + C$ |
-| **齐次方程** | $\frac{dy}{dx} = F(\frac{y}{x})$ | 令$u = \frac{y}{x}$ | 化为可分离变量 |
+| **齐次方程** | $\frac{dy}{dx} = F(\frac{y}{x})$ | 令 $u = \frac{y}{x}$ | 化为可分离变量 |
 | **一阶线性** | $\frac{dy}{dx} + P(x)y = Q(x)$ | 积分因子 | $y = e^{-\int P dx}[\int Q e^{\int P dx} dx + C]$ |
-| **伯努利方程** | $\frac{dy}{dx} + P(x)y = Q(x)y^n$ | 令$z = y^{1-n}$ | 化为一阶线性 |
+| **伯努利方程** | $\frac{dy}{dx} + P(x)y = Q(x)y^n$ | 令 $z = y^{1-n}$ | 化为一阶线性 |
 | **全微分方程** | $P(x,y)dx + Q(x,y)dy = 0$ | $\frac{\partial P}{\partial y} = \frac{\partial Q}{\partial x}$ | $\int P dx + \int Q dy = C$ |
 
 ### 11.2 二阶常系数线性微分方程
@@ -738,29 +738,29 @@
 
 | 判定法 | 条件 | 结论 | 适用情况 |
 |-------|------|------|----------|
-| **比较判定法** | $0 \leq u_n \leq v_n$ | $\sum v_n$收敛$\Rightarrow\sum u_n$收敛 | 有比较对象 |
-| **比值判定法** | $\lim_{n \to \infty} \frac{u_{n+1}}{u_n} = \rho$ | $\rho < 1$收敛， $\rho > 1$发散 | 含阶乘、指数 |
-| **根式判定法** | $\lim_{n \to \infty} \sqrt[n]{u_n} = \rho$ | $\rho < 1$收敛， $\rho > 1$发散 | 含$n$次幂 |
-| **积分判定法** | $f(x)$单调递减正值 | $\int_1^{\infty} f(x) dx$与$\sum f(n)$同敛散 | 可积函数 |
-| **拉贝判定法** | $\lim_{n \to \infty} n(1 - \frac{u_{n+1}}{u_n}) = l$ | $l > 1$收敛， $l < 1$发散 | 比值法失效时 |
+| **比较判定法** | $0 \leq u_n \leq v_n$ | $\sum v_n$ 收敛 $\Rightarrow\sum u_n$ 收敛 | 有比较对象 |
+| **比值判定法** | $\lim_{n \to \infty} \frac{u_{n+1}}{u_n} = \rho$ | $\rho < 1$ 收敛， $\rho > 1$ 发散 | 含阶乘、指数 |
+| **根式判定法** | $\lim_{n \to \infty} \sqrt[n]{u_n} = \rho$ | $\rho < 1$ 收敛， $\rho > 1$ 发散 | 含 $n$ 次幂 |
+| **积分判定法** | $f(x)$ 单调递减正值 | $\int_1^{\infty} f(x) dx$ 与$\sum f(n)$ 同敛散 | 可积函数 |
+| **拉贝判定法** | $\lim_{n \to \infty} n(1 - \frac{u_{n+1}}{u_n}) = l$ | $l > 1$ 收敛， $l < 1$ 发散 | 比值法失效时 |
 
 ### 12.2 常见级数收敛性
 
 | 级数 | 收敛性 | 条件 |
 |------|-------|------|
-| $\sum_{n=1}^{\infty} \frac{1}{n^p}$ | $p > 1$收敛， $p \leq 1$发散 | $p$级数 |
-| $\sum_{n=1}^{\infty} \frac{1}{n \ln^p n}$ | $p > 1$收敛， $p \leq 1$发散 | 对数$p$级数 |
-| $\sum_{n=0}^{\infty} x^n$ | $\|x\| < 1$收敛 | 几何级数 |
-| $\sum_{n=1}^{\infty} \frac{x^n}{n}$ | $-1 < x \leq 1$收敛 | 对数级数 |
-| $\sum_{n=0}^{\infty} \frac{x^n}{n!}$ | 对所有$x$收敛 | 指数级数 |
+| $\sum_{n=1}^{\infty} \frac{1}{n^p}$ | $p > 1$ 收敛， $p \leq 1$ 发散 | $p$ 级数 |
+| $\sum_{n=1}^{\infty} \frac{1}{n \ln^p n}$ | $p > 1$ 收敛， $p \leq 1$ 发散 | 对数 $p$ 级数 |
+| $\sum_{n=0}^{\infty} x^n$ | $\|x\| < 1$ 收敛 | 几何级数 |
+| $\sum_{n=1}^{\infty} \frac{x^n}{n}$ | $-1 < x \leq 1$ 收敛 | 对数级数 |
+| $\sum_{n=0}^{\infty} \frac{x^n}{n!}$ | 对所有 $x$ 收敛 | 指数级数 |
 
 ### 12.3 交错级数判定
 
 | 判定法 | 条件 | 结论 |
 |-------|------|------|
-| **莱布尼茨判定法** | $\{u_n\}$单调递减且$\lim_{n \to \infty} u_n = 0$ | $\sum (-1)^n u_n$收敛 |
+| **莱布尼茨判定法** | $\{u_n\}$ 单调递减且 $\lim_{n \to \infty} u_n = 0$ | $\sum (-1)^n u_n$ 收敛 |
 | **条件收敛** | 级数收敛但绝对值级数发散 | 可重排改变和 |
-| **绝对收敛** | $\sum \|u_n\|$收敛 | 原级数必收敛 |
+| **绝对收敛** | $\sum \|u_n\|$ 收敛 | 原级数必收敛 |
 
 ---
 
@@ -793,9 +793,9 @@
 
 | 函数类型 | 傅里叶系数 | 级数形式 |
 |---------|------------|----------|
-| **一般函数** | $a_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\cos(nx) dx$<br>$b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin(nx) dx$ | $f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty}(a_n\cos nx + b_n\sin nx)$ |
-| **奇函数** | $a_n = 0$<br>$b_n = \frac{2}{\pi}\int_0^{\pi} f(x)\sin(nx) dx$ | $f(x) = \sum_{n=1}^{\infty} b_n\sin nx$ |
-| **偶函数** | $a_n = \frac{2}{\pi}\int_0^{\pi} f(x)\cos(nx) dx$<br>$b_n = 0$ | $f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n\cos nx$ |
+| **一般函数** | $a_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\cos(nx) dx$ <br> $b_n = \frac{1}{\pi}\int_{-\pi}^{\pi} f(x)\sin(nx) dx$ | $f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty}(a_n\cos nx + b_n\sin nx)$ |
+| **奇函数** | $a_n = 0$ <br> $b_n = \frac{2}{\pi}\int_0^{\pi} f(x)\sin(nx) dx$ | $f(x) = \sum_{n=1}^{\infty} b_n\sin nx$ |
+| **偶函数** | $a_n = \frac{2}{\pi}\int_0^{\pi} f(x)\cos(nx) dx$ <br> $b_n = 0$ | $f(x) = \frac{a_0}{2} + \sum_{n=1}^{\infty} a_n\cos nx$ |
 
 ### 14.2 常见函数的傅里叶级数
 
@@ -827,7 +827,7 @@
 | **与伽马函数关系** | $B(p,q) = \frac{\Gamma(p)\Gamma(q)}{\Gamma(p+q)}$ | 基本关系 |
 | **对称性** | $B(p,q) = B(q,p)$ | 对称性质 |
 | **积分表示** | $B(p,q) = 2\int_0^{\frac{\pi}{2}} \sin^{2p-1}θ \cos^{2q-1}θ \, dθ$ | 三角形式 |
-| **特殊值** | $B(m,n) = \frac{(m-1)!(n-1)!}{(m+n-1)!}$ | $m,n$为正整数 |
+| **特殊值** | $B(m,n) = \frac{(m-1)!(n-1)!}{(m+n-1)!}$ | $m,n$ 为正整数 |
 
 ### 15.3 误差函数
 
@@ -856,7 +856,7 @@
 
 | 误差类型 | 定义 | 计算公式 |
 |---------|------|----------|
-| **绝对误差** | $\Delta x = x^* - x$ | $x^*$为近似值， $x$为精确值 |
+| **绝对误差** | $\Delta x = x^* - x$ | $x^*$ 为近似值， $x$ 为精确值 |
 | **相对误差** | $\delta_x = \frac{\Delta x}{x}$ | 绝对误差除以精确值 |
 | **相对误差限** | $\|\delta_x\| \leq \delta$ | 相对误差的上界 |
 

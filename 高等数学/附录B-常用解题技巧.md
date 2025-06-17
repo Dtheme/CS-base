@@ -199,7 +199,7 @@ $$\int_0^{\pi/2} \sin^n x dx = \int_0^{\pi/2} \cos^n x dx = \begin{cases}
 | $P_n(x)e^{ax}$ | $x^k Q_n(x)e^{ax}$ |
 | $e^{ax}(A\cos bx + B\sin bx)$ | $x^k e^{ax}(P\cos bx + Q\sin bx)$ |
 
-其中 $k$ 为 $a$（或 $a \pm bi$）作为特征根的重数。
+其中 $k$ 为 $a$ （或 $a \pm bi$）作为特征根的重数。
 
 ---
 
