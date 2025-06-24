@@ -64,7 +64,7 @@ test-performance:$(TEST_EXECUTABLE)
 	@echo "运行性能测试..."
 	@$(TEST_EXECUTABLE) | grep -A 20 "性能测试"
 
-# 408题型演示
+# 题型演示
 .PHONY: test-exam
 test-exam:$(TEST_EXECUTABLE)
 	@echo "运行408题型演示..."
@@ -119,7 +119,7 @@ help:
 	@echo "  test             - 运行完整测试"
 	@echo "  test-quick       - 运行快速测试"
 	@echo "  test-performance - 运行性能测试"
-	@echo "  test-exam        - 运行408考研真题演示"
+	@echo "  test-exam        - 运行408真题演示"
 	@echo ""
 	@echo "维护目标："
 	@echo "  clean            - 清理构建文件"
