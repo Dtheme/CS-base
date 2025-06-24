@@ -16,8 +16,8 @@ BUILD_DIR = build
 DIST_DIR = dist
 
 # 自动发现所有章节目录
-CHAPTERS := $(wildcard [0-9].*/)
-CHAPTER_NAMES := $(patsubst %/,%,$(CHAPTERS))
+CHAPTERS :=$(wildcard [0-9].*/)
+CHAPTER_NAMES :=$(patsubst %/,%,$(CHAPTERS))
 
 # 颜色定义（用于美化输出）
 COLOR_RESET = \033[0m
@@ -35,13 +35,13 @@ all: info build-all
 .PHONY: info
 info:
 	@echo "$(COLOR_CYAN)╔════════════════════════════════════════════════════════════╗$(COLOR_RESET)"
-	@echo "$(COLOR_CYAN)║              $(PROJECT_NAME)                 ║$(COLOR_RESET)"
+	@echo "$(COLOR_CYAN)║             $(PROJECT_NAME)                 ║$(COLOR_RESET)"
 	@echo "$(COLOR_CYAN)║                        版本：$(VERSION)                        ║$(COLOR_RESET)"
 	@echo "$(COLOR_CYAN)╚════════════════════════════════════════════════════════════╝$(COLOR_RESET)"
 	@echo ""
 	@echo "$(COLOR_BLUE)发现的章节目录：$(COLOR_RESET)"
-	@for chapter in $(CHAPTER_NAMES); do \
-		echo "  $(COLOR_GREEN)✓$(COLOR_RESET) $$chapter"; \
+	@for chapter in$(CHAPTER_NAMES); do \
+		echo " $(COLOR_GREEN)✓$(COLOR_RESET)$$chapter"; \
 	done
 	@echo ""
 
@@ -49,11 +49,11 @@ info:
 .PHONY: build-all
 build-all:
 	@echo "$(COLOR_YELLOW)开始构建所有章节...$(COLOR_RESET)"
-	@mkdir -p $(BUILD_DIR)
-	@for chapter in $(CHAPTER_NAMES); do \
+	@mkdir -p$(BUILD_DIR)
+	@for chapter in$(CHAPTER_NAMES); do \
 		echo "$(COLOR_BLUE)构建章节：$$chapter$(COLOR_RESET)"; \
 		$(MAKE) -C "$$chapter/code" CC="$(CC)" CFLAGS="$(CFLAGS)" || exit 1; \
-		echo "$(COLOR_GREEN)✓ $$chapter 构建完成$(COLOR_RESET)"; \
+		echo "$(COLOR_GREEN)✓$$chapter 构建完成$(COLOR_RESET)"; \
 	done
 	@echo "$(COLOR_GREEN)所有章节构建完成！$(COLOR_RESET)"
 
@@ -61,10 +61,10 @@ build-all:
 .PHONY: test-all
 test-all:
 	@echo "$(COLOR_YELLOW)运行所有章节的测试...$(COLOR_RESET)"
-	@for chapter in $(CHAPTER_NAMES); do \
+	@for chapter in$(CHAPTER_NAMES); do \
 		echo "$(COLOR_BLUE)测试章节：$$chapter$(COLOR_RESET)"; \
-		$(MAKE) -C "$$chapter/code" test || echo "$(COLOR_RED)✗ $$chapter 测试失败$(COLOR_RESET)"; \
-		echo "$(COLOR_GREEN)✓ $$chapter 测试完成$(COLOR_RESET)"; \
+		$(MAKE) -C "$$chapter/code" test || echo "$(COLOR_RED)✗$$chapter 测试失败$(COLOR_RESET)"; \
+		echo "$(COLOR_GREEN)✓$$chapter 测试完成$(COLOR_RESET)"; \
 	done
 	@echo "$(COLOR_GREEN)所有测试完成！$(COLOR_RESET)"
 
@@ -72,11 +72,11 @@ test-all:
 .PHONY: clean-all
 clean-all:
 	@echo "$(COLOR_YELLOW)清理所有构建文件...$(COLOR_RESET)"
-	@for chapter in $(CHAPTER_NAMES); do \
-		echo "清理 $$chapter"; \
+	@for chapter in$(CHAPTER_NAMES); do \
+		echo "清理$$chapter"; \
 		$(MAKE) -C "$$chapter/code" clean 2>/dev/null || true; \
 	done
-	@rm -rf $(BUILD_DIR) $(DIST_DIR)
+	@rm -rf$(BUILD_DIR)$(DIST_DIR)
 	@echo "$(COLOR_GREEN)清理完成！$(COLOR_RESET)"
 
 # 特定章节操作
@@ -87,12 +87,12 @@ build-chapter:
 		exit 1; \
 	fi
 	@if [ ! -d "$(CHAPTER)/code" ]; then \
-		echo "$(COLOR_RED)错误：章节 $(CHAPTER) 不存在或没有code目录$(COLOR_RESET)"; \
+		echo "$(COLOR_RED)错误：章节$(CHAPTER) 不存在或没有code目录$(COLOR_RESET)"; \
 		exit 1; \
 	fi
 	@echo "$(COLOR_BLUE)构建章节：$(CHAPTER)$(COLOR_RESET)"
 	@$(MAKE) -C "$(CHAPTER)/code" CC="$(CC)" CFLAGS="$(CFLAGS)"
-	@echo "$(COLOR_GREEN)✓ $(CHAPTER) 构建完成$(COLOR_RESET)"
+	@echo "$(COLOR_GREEN)✓$(CHAPTER) 构建完成$(COLOR_RESET)"
 
 .PHONY: test-chapter
 test-chapter:
@@ -101,12 +101,12 @@ test-chapter:
 		exit 1; \
 	fi
 	@if [ ! -d "$(CHAPTER)/code" ]; then \
-		echo "$(COLOR_RED)错误：章节 $(CHAPTER) 不存在或没有code目录$(COLOR_RESET)"; \
+		echo "$(COLOR_RED)错误：章节$(CHAPTER) 不存在或没有code目录$(COLOR_RESET)"; \
 		exit 1; \
 	fi
 	@echo "$(COLOR_BLUE)测试章节：$(CHAPTER)$(COLOR_RESET)"
 	@$(MAKE) -C "$(CHAPTER)/code" test
-	@echo "$(COLOR_GREEN)✓ $(CHAPTER) 测试完成$(COLOR_RESET)"
+	@echo "$(COLOR_GREEN)✓$(CHAPTER) 测试完成$(COLOR_RESET)"
 
 .PHONY: clean-chapter
 clean-chapter:
@@ -115,19 +115,19 @@ clean-chapter:
 		exit 1; \
 	fi
 	@if [ ! -d "$(CHAPTER)/code" ]; then \
-		echo "$(COLOR_RED)错误：章节 $(CHAPTER) 不存在或没有code目录$(COLOR_RESET)"; \
+		echo "$(COLOR_RED)错误：章节$(CHAPTER) 不存在或没有code目录$(COLOR_RESET)"; \
 		exit 1; \
 	fi
 	@echo "$(COLOR_YELLOW)清理章节：$(CHAPTER)$(COLOR_RESET)"
 	@$(MAKE) -C "$(CHAPTER)/code" clean
-	@echo "$(COLOR_GREEN)✓ $(CHAPTER) 清理完成$(COLOR_RESET)"
+	@echo "$(COLOR_GREEN)✓$(CHAPTER) 清理完成$(COLOR_RESET)"
 
 # 创建发布包
 .PHONY: dist
 dist: clean-all build-all
 	@echo "$(COLOR_YELLOW)创建发布包...$(COLOR_RESET)"
-	@mkdir -p $(DIST_DIR)
-	@tar -czf $(DIST_DIR)/$(PROJECT_NAME)-v$(VERSION).tar.gz \
+	@mkdir -p$(DIST_DIR)
+	@tar -czf$(DIST_DIR)/$(PROJECT_NAME)-v$(VERSION).tar.gz \
 		--exclude='.git*' \
 		--exclude='$(BUILD_DIR)' \
 		--exclude='$(DIST_DIR)' \
@@ -165,8 +165,8 @@ stats:
 	@if command -v cloc >/dev/null 2>&1; then \
 		cloc --exclude-dir=$(BUILD_DIR),$(DIST_DIR) .; \
 	else \
-		echo "  $(COLOR_YELLOW)提示：安装 cloc 工具可获得详细的代码统计$(COLOR_RESET)"; \
-		find . -name "*.c" -o -name "*.h" | grep -v "$(BUILD_DIR)" | xargs wc -l | tail -1 | awk '{print "  C/C++代码总行数：" $$1}'; \
+		echo " $(COLOR_YELLOW)提示：安装 cloc 工具可获得详细的代码统计$(COLOR_RESET)"; \
+		find . -name "*.c" -o -name "*.h" | grep -v "$(BUILD_DIR)" | xargs wc -l | tail -1 | awk '{print "  C/C++代码总行数："$$1}'; \
 	fi
 
 # 快速验证所有代码
@@ -174,18 +174,18 @@ stats:
 verify:
 	@echo "$(COLOR_YELLOW)快速验证所有代码...$(COLOR_RESET)"
 	@error_count=0; \
-	for chapter in $(CHAPTER_NAMES); do \
+	for chapter in$(CHAPTER_NAMES); do \
 		echo "$(COLOR_BLUE)验证章节：$$chapter$(COLOR_RESET)"; \
 		if [ -d "$$chapter/code" ]; then \
 			cd "$$chapter/code"; \
 			for c_file in *.c; do \
 				if [ -f "$$c_file" ]; then \
 					echo "  检查语法：$$c_file"; \
-					if ! $(CC) $(CFLAGS) -fsyntax-only "$$c_file" 2>/dev/null; then \
-						echo "$(COLOR_RED)  ✗ $$c_file 语法错误$(COLOR_RESET)"; \
+					if !$(CC)$(CFLAGS) -fsyntax-only "$$c_file" 2>/dev/null; then \
+						echo "$(COLOR_RED)  ✗$$c_file 语法错误$(COLOR_RESET)"; \
 						error_count=$$((error_count + 1)); \
 					else \
-						echo "$(COLOR_GREEN)  ✓ $$c_file 语法正确$(COLOR_RESET)"; \
+						echo "$(COLOR_GREEN)  ✓$$c_file 语法正确$(COLOR_RESET)"; \
 					fi; \
 				fi; \
 			done; \
@@ -194,10 +194,10 @@ verify:
 			echo "$(COLOR_YELLOW)  警告：$$chapter 没有code目录$(COLOR_RESET)"; \
 		fi; \
 	done; \
-	if [ $$error_count -eq 0 ]; then \
+	if [$$error_count -eq 0 ]; then \
 		echo "$(COLOR_GREEN)✓ 所有代码验证通过！$(COLOR_RESET)"; \
 	else \
-		echo "$(COLOR_RED)✗ 发现 $$error_count 个语法错误$(COLOR_RESET)"; \
+		echo "$(COLOR_RED)✗ 发现$$error_count 个语法错误$(COLOR_RESET)"; \
 		exit 1; \
 	fi
 
@@ -245,8 +245,8 @@ help:
 	@echo "  CC=clang make build-all"
 	@echo ""
 	@echo "$(COLOR_BLUE)当前发现的章节：$(COLOR_RESET)"
-	@for chapter in $(CHAPTER_NAMES); do \
-		echo "  $(COLOR_GREEN)$(chapter)$(COLOR_RESET)"; \
+	@for chapter in$(CHAPTER_NAMES); do \
+		echo " $(COLOR_GREEN)$(chapter)$(COLOR_RESET)"; \
 	done
 
 # 开发者快捷命令

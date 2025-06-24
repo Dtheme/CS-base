@@ -1,12 +1,10 @@
 /* btree.c - B树数据结构完整实现
+ * Create by: zw.duan
+ *
  * 
- *   核心内容：
  * - B树是一种平衡的多路搜索树，主要用于数据库和文件系统
  * - 支持范围查询、高效插入删除、保持平衡性
  * - 时间复杂度：O(log n)，适合大数据量存储
- * 
- * Create by: zw.duan
- * Reference: 408数据结构学习标准
  */
 
 #include "btree.h"

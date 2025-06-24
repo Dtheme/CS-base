@@ -17,9 +17,9 @@ QUEUE_SOURCES = queue.c test_queue.c
 OLD_SOURCES = stack.c queue.c test_stack_queue.c
 
 # 目标文件
-STACK_OBJECTS = $(STACK_SOURCES:.c=.o)
-QUEUE_OBJECTS = $(QUEUE_SOURCES:.c=.o)
-OLD_OBJECTS = $(OLD_SOURCES:.c=.o)
+STACK_OBJECTS =$(STACK_SOURCES:.c=.o)
+QUEUE_OBJECTS =$(QUEUE_SOURCES:.c=.o)
+OLD_OBJECTS =$(OLD_SOURCES:.c=.o)
 
 # 头文件
 HEADERS = stack.h queue.h
@@ -27,69 +27,69 @@ HEADERS = stack.h queue.h
 # 默认目标
 .PHONY: all clean help stack queue old install
 
-all: $(STACK_TARGET) $(QUEUE_TARGET)
+all:$(STACK_TARGET)$(QUEUE_TARGET)
 
 # 编译栈测试程序
 $(STACK_TARGET): stack.o test_stack.o
 	@echo "正在链接栈测试程序..."
-	$(CC) $(CFLAGS) -o $@ stack.o test_stack.o $(LDFLAGS)
-	@echo "✓ 栈测试程序编译完成: $@"
+	$(CC)$(CFLAGS) -o$@ stack.o test_stack.o$(LDFLAGS)
+	@echo "✓ 栈测试程序编译完成:$@"
 
 # 编译队列测试程序
 $(QUEUE_TARGET): queue.o test_queue.o
 	@echo "正在链接队列测试程序..."
-	$(CC) $(CFLAGS) -o $@ queue.o test_queue.o $(LDFLAGS)
-	@echo "✓ 队列测试程序编译完成: $@"
+	$(CC)$(CFLAGS) -o$@ queue.o test_queue.o$(LDFLAGS)
+	@echo "✓ 队列测试程序编译完成:$@"
 
 # 编译旧版本测试程序（兼容性）
-$(OLD_TARGET): $(OLD_OBJECTS)
+$(OLD_TARGET):$(OLD_OBJECTS)
 	@echo "正在链接旧版测试程序..."
-	$(CC) $(CFLAGS) -o $@ $(OLD_OBJECTS) $(LDFLAGS)
-	@echo "✓ 旧版测试程序编译完成: $@"
+	$(CC)$(CFLAGS) -o$@$(OLD_OBJECTS)$(LDFLAGS)
+	@echo "✓ 旧版测试程序编译完成:$@"
 
 # 编译源文件为目标文件
 stack.o: stack.c stack.h
 	@echo "正在编译 stack.c..."
-	$(CC) $(CFLAGS) -c stack.c
+	$(CC)$(CFLAGS) -c stack.c
 
 queue.o: queue.c queue.h
 	@echo "正在编译 queue.c..."
-	$(CC) $(CFLAGS) -c queue.c
+	$(CC)$(CFLAGS) -c queue.c
 
 test_stack.o: test_stack.c stack.h
 	@echo "正在编译 test_stack.c..."
-	$(CC) $(CFLAGS) -c test_stack.c
+	$(CC)$(CFLAGS) -c test_stack.c
 
 test_queue.o: test_queue.c queue.h
 	@echo "正在编译 test_queue.c..."
-	$(CC) $(CFLAGS) -c test_queue.c
+	$(CC)$(CFLAGS) -c test_queue.c
 
 test_stack_queue.o: test_stack_queue.c stack.h queue.h
 	@echo "正在编译 test_stack_queue.c..."
-	$(CC) $(CFLAGS) -c test_stack_queue.c
+	$(CC)$(CFLAGS) -c test_stack_queue.c
 
 # 快捷编译目标
-stack: $(STACK_TARGET)
+stack:$(STACK_TARGET)
 	@echo "栈测试程序已就绪，运行命令: ./$(STACK_TARGET)"
 
-queue: $(QUEUE_TARGET)
+queue:$(QUEUE_TARGET)
 	@echo "队列测试程序已就绪，运行命令: ./$(QUEUE_TARGET)"
 
-old: $(OLD_TARGET)
+old:$(OLD_TARGET)
 	@echo "旧版测试程序已就绪，运行命令: ./$(OLD_TARGET)"
 
 # 运行测试
 .PHONY: run-stack run-queue run-old test
 
-run-stack: $(STACK_TARGET)
+run-stack:$(STACK_TARGET)
 	@echo "运行栈测试程序..."
 	./$(STACK_TARGET)
 
-run-queue: $(QUEUE_TARGET)
+run-queue:$(QUEUE_TARGET)
 	@echo "运行队列测试程序..."
 	./$(QUEUE_TARGET)
 
-run-old: $(OLD_TARGET)
+run-old:$(OLD_TARGET)
 	@echo "运行旧版测试程序..."
 	./$(OLD_TARGET)
 
@@ -106,8 +106,8 @@ test: all
 
 check: all
 	@echo "检查可执行文件..."
-	@if [ -f $(STACK_TARGET) ]; then echo "✓ 栈测试程序: $(STACK_TARGET)"; else echo "✗ 栈测试程序编译失败"; fi
-	@if [ -f $(QUEUE_TARGET) ]; then echo "✓ 队列测试程序: $(QUEUE_TARGET)"; else echo "✗ 队列测试程序编译失败"; fi
+	@if [ -f$(STACK_TARGET) ]; then echo "✓ 栈测试程序:$(STACK_TARGET)"; else echo "✗ 栈测试程序编译失败"; fi
+	@if [ -f$(QUEUE_TARGET) ]; then echo "✓ 队列测试程序:$(QUEUE_TARGET)"; else echo "✗ 队列测试程序编译失败"; fi
 
 # 使用cppcheck进行静态分析（如果安装了的话）
 lint:
@@ -136,8 +136,8 @@ release: clean all
 # 安装程序到系统目录（可选）
 install: all
 	@echo "安装程序到 /usr/local/bin （需要root权限）..."
-	sudo cp $(STACK_TARGET) /usr/local/bin/
-	sudo cp $(QUEUE_TARGET) /usr/local/bin/
+	sudo cp$(STACK_TARGET) /usr/local/bin/
+	sudo cp$(QUEUE_TARGET) /usr/local/bin/
 	@echo "安装完成"
 
 # 打包项目
@@ -151,7 +151,7 @@ package: clean
 # 清理编译文件
 clean:
 	@echo "清理编译文件..."
-	rm -f *.o $(STACK_TARGET) $(QUEUE_TARGET) $(OLD_TARGET) core
+	rm -f *.o$(STACK_TARGET)$(QUEUE_TARGET)$(OLD_TARGET) core
 	rm -f stack_queue_408.tar.gz
 	@echo "清理完成"
 
