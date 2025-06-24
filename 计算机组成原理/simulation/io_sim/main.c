@@ -5,8 +5,7 @@
 int main(void) {
     // 忽略命令行参数
     printf("========== 输入输出系统模拟器 ==========\n");
-    printf("版本: 1.0\n");
-    printf("适用: 408考研 - 计算机组成原理\n");
+    printf("适用: 计算机组成原理\n");
     printf("功能: I/O设备管理、接口控制、数据传输仿真\n");
     printf("\n");
     
@@ -15,7 +14,7 @@ int main(void) {
     printf("- 字符设备、块设备管理\n");
     printf("- I/O接口和控制器仿真\n");
     printf("- 设备性能分析\n");
-    printf("- 408真题场景测试\n");
+    printf("- 考试题型场景测试\n");
     printf("\n");
     
     printf("使用方法:\n");

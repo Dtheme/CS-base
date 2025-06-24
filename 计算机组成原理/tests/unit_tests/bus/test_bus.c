@@ -352,10 +352,10 @@ bool test_comprehensive_scenario(void) {
     TEST_END();
 }
 
-// ==================== 408考研真题模拟 ====================
+// ==================== 408真题模拟 ====================
 
 bool test_408_exam_scenarios(void) {
-    TEST_START("408考研真题模拟");
+    TEST_START("408真题模拟");
     
     printf("\n【真题1】总线性能计算\n");
     
@@ -411,7 +411,7 @@ bool test_408_exam_scenarios(void) {
     
     TEST_ASSERT(utilization >= 0 && utilization <= 100, "利用率计算范围错误");
     
-    printf("✓ 408考研真题模拟完成\n");
+    printf("✓ 408真题模拟完成\n");
     
     TEST_END();
 }

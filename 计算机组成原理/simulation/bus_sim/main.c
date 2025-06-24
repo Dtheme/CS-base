@@ -6,7 +6,7 @@ int main(void) {
     // 忽略命令行参数
     printf("========== 总线系统模拟器 ==========\n");
     printf("版本: 1.0\n");
-    printf("适用: 408考研 - 计算机组成原理\n");
+    printf("适用: 计算机组成原理\n");
     printf("功能: 总线架构、仲裁协议、传输控制仿真\n");
     printf("\n");
     
@@ -15,7 +15,7 @@ int main(void) {
     printf("- 集中式、分布式仲裁\n");
     printf("- 同步、异步传输协议\n");
     printf("- 总线性能分析\n");
-    printf("- 408真题场景测试\n");
+    printf("- 考试题型场景测试\n");
     printf("\n");
     
     printf("使用方法:\n");

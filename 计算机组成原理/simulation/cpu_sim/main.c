@@ -24,7 +24,7 @@ void print_usage(const char *program_name) {
 
 void print_version(void) {
     printf("CPU模拟器 v1.0 - 简化版\n");
-    printf("408考研复习资料工程 - 计算机组成原理模块\n");
+    printf(" 计算机组成原理模块\n");
     printf("构建时间: %s %s\n", __DATE__, __TIME__);
 }
 

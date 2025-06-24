@@ -19,7 +19,7 @@
  * 3. 页面替换算法(FIFO、LRU、OPT、Clock)
  * 4. TLB管理和性能优化
  * 5. 段页式存储管理
- * 6. 408考研典型场景测试
+ * 6. 408典型场景测试
  * 7. 性能统计和分析
  */
 
@@ -28,7 +28,7 @@
 static vm_system_t test_vm;
 static bool test_vm_initialized = false;
 
-// 408考研典型访问序列
+// 408典型访问序列
 static u32 test_sequence_408[] = {1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5};
 static u32 test_sequence_length = sizeof(test_sequence_408) / sizeof(u32);
 
@@ -328,7 +328,7 @@ bool test_performance_calculation(void) {
 }
 
 bool test_408_exam_scenarios(void) {
-    TEST_START("408考研典型场景测试");
+    TEST_START("408典型场景测试");
     
     // 场景1: 地址翻译计算
     TEST_ASSERT(init_test_vm(VM_MODE_PAGING, 4, VM_REPLACE_LRU), "系统初始化成功");
@@ -342,14 +342,14 @@ bool test_408_exam_scenarios(void) {
     TEST_ASSERT(parsed.page_number == expected_page, "虚拟页号计算正确");
     TEST_ASSERT(parsed.page_offset == expected_offset, "页内偏移计算正确");
     
-    printf("408考研例题: 虚拟地址0x%08X\n", test_vaddr);
+    printf("408例题: 虚拟地址0x%08X\n", test_vaddr);
     printf("  虚拟页号: %u (0x%X)\n", parsed.page_number, parsed.page_number);
     printf("  页内偏移: %u (0x%X)\n", parsed.page_offset, parsed.page_offset);
     
     // 场景2: 页面替换算法比较
     cleanup_test_vm();
     
-    printf("\n408考研算法比较:\n");
+    printf("\n408算法比较:\n");
     printf("访问序列: ");
     for (u32 i = 0; i < test_sequence_length; i++) {
         printf("%u ", test_sequence_408[i]);
@@ -541,7 +541,7 @@ int main(void) {
     
     if (all_passed) {
         printf(ANSI_COLOR_GREEN "🎉 所有测试通过！\n" ANSI_COLOR_RESET);
-        printf("虚拟存储器模拟器功能完全正常，可用于408考研学习。\n");
+        printf("虚拟存储器模拟器功能完全正常，可用于408学习。\n");
         return 0;
     } else {
         printf(ANSI_COLOR_RED "❌ 部分测试失败\n" ANSI_COLOR_RESET);

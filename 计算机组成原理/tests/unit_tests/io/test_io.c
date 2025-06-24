@@ -479,10 +479,10 @@ void test_io_system_monitoring(void) {
     printf("✓ I/O系统监控测试通过\n");
 }
 
-// ==================== 408考研场景测试 ====================
+// ==================== 408场景测试 ====================
 
 void test_408_scenario_interrupt_timing(void) {
-    printf("测试408考研场景：中断响应时间计算...\n");
+    printf("测试408场景：中断响应时间计算...\n");
     
     setup_io_system();
     
@@ -502,11 +502,11 @@ void test_408_scenario_interrupt_timing(void) {
     TEST_ASSERT_TRUE(interrupt_overhead > 0 && interrupt_overhead < 100, "中断开销计算");
     
     cleanup_io_system();
-    printf("✓ 408考研中断时间计算测试通过\n");
+    printf("✓ 408中断时间计算测试通过\n");
 }
 
 void test_408_scenario_disk_scheduling(void) {
-    printf("测试408考研场景：磁盘调度算法...\n");
+    printf("测试408场景：磁盘调度算法...\n");
     
     setup_io_system();
     
@@ -550,7 +550,7 @@ void test_408_scenario_disk_scheduling(void) {
     }
     
     cleanup_io_system();
-    printf("✓ 408考研磁盘调度算法测试通过\n");
+    printf("✓ 408磁盘调度算法测试通过\n");
 }
 
 // ==================== 调试功能测试 ====================
@@ -619,7 +619,7 @@ int main(void) {
     // 系统监控测试
     test_io_system_monitoring();
     
-    // 408考研场景测试
+    // 408场景测试
     test_408_scenario_interrupt_timing();
     test_408_scenario_disk_scheduling();
     

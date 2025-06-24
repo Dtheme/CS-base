@@ -18,7 +18,7 @@
  * 2. 逻辑运算（与或非异或）
  * 3. 移位运算（左移右移循环移位）
  * 4. 标志位设置和检查
- * 5. 408考研真题演示
+ * 5. 408真题演示
  */
 
 // 测试统计结构
@@ -301,10 +301,10 @@ bool test_compare_operations(void) {
 }
 
 /**
- * 408考研真题演示
+ * 408真题演示
  */
 void demo_408_exam_questions(void) {
-    printf("\n=== 408考研真题演示 ===\n");
+    printf("\n=== 408真题演示 ===\n");
     
     // 演示ALU基本运算
     struct {
@@ -382,7 +382,7 @@ int main(void) {
     // 运行所有测试
     run_all_alu_tests();
     
-    // 运行408考研演示
+    // 运行408演示
     demo_408_exam_questions();
     
     return g_test_stats.failed_tests == 0 ? 0 : 1;

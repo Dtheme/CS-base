@@ -1,6 +1,6 @@
 # 计算机组成原理模拟器
 
-408考研学习笔记，代码部分实现了CPU、内存、缓存、总线、I/O等计算机系统核心组件的仿真。文档部分是理论相关知识，以及考试相关题目考察方式。
+学习笔记，代码部分实现了CPU、内存、缓存、总线、I/O等计算机系统核心组件的仿真。文档部分是理论相关知识，以及考试相关题目考察方式。
 
 ## 项目概述
 
@@ -124,7 +124,7 @@ cd tests && make run-instruction
 - 8种寻址方式：立即、寄存器、直接、间接、基址、变址、相对寻址
 - 指令类型：数据传送、算术运算、逻辑运算、程序控制
 - 指令执行流程和程序运行
-- 408考研真题场景模拟
+- 场景模拟
 
 #### 缓存模拟器测试 (`tests/unit_tests/cache/`)
 ```bash
@@ -146,7 +146,7 @@ cd tests && make run-virtual-memory
 - TLB (Translation Lookaside Buffer)
 - 页面置换算法：FIFO、LRU、OPT、Clock
 - 缺页中断处理
-- 408考研典型算法比较
+- 408典型算法比较
 
 #### ALU模拟器测试 (`tests/unit_tests/alu/`)
 ```bash
@@ -157,7 +157,7 @@ cd tests && make run-alu
 - 逻辑运算：与或非异或、移位、循环移位
 - 比较运算和标志位设置
 - 溢出检测和异常处理
-- 408真题演示
+- 考题场景测试
 
 #### 总线模拟器测试 (`tests/unit_tests/bus/`)
 ```bash
@@ -179,7 +179,7 @@ cd tests && make run-io
 - 设备控制器模拟
 - I/O调度算法：FCFS、优先级、SSTF电梯算法
 - 中断控制器和DMA控制器
-- 408考研场景：中断响应时间计算
+- 408场景：中断响应时间计算
 
 #### 流水线测试 (`tests/unit_tests/pipeline/`)
 ```bash
@@ -276,7 +276,7 @@ printf("命中率: %.2f%%\n", stats.hit_rate * 100);
 virtual_memory_t vm;
 vm_init(&vm, VM_MODE_PAGING, 3, VM_REPLACE_LRU);
 
-// 模拟408考研经典序列
+// 模拟408经典序列
 u32 sequence[] = {1, 2, 3, 4, 1, 2, 5, 1, 2, 3, 4, 5};
 for (int i = 0; i < 12; i++) {
     u32 vaddr = sequence[i] * VM_PAGE_SIZE;
@@ -290,7 +290,7 @@ printf("缺页次数: %u\n", vm.stats.page_faults);
 
 ## 重点
 
-本模拟器特别针对408考研计算机组成原理部分，包含：
+本模拟器特别针对408计算机组成原理部分，包含：
 
 ### 考试重点内容
 1. **指令系统** - 寻址方式、指令格式、程序执行

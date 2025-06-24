@@ -617,25 +617,25 @@ void pipeline_print_instruction_trace(const pipeline_t *pipeline,
  */
 void pipeline_set_debug_mode(pipeline_t *pipeline, bool debug);
 
-// ==================== 408考研测试函数 ====================
+// ==================== 408测试函数 ====================
 
 /**
- * 408考研真题演示：流水线性能计算
+ * 408真题演示：流水线性能计算
  */
 void pipeline_exam_demo_performance_calculation(void);
 
 /**
- * 408考研真题演示：数据冲突分析
+ * 408真题演示：数据冲突分析
  */
 void pipeline_exam_demo_data_hazard_analysis(void);
 
 /**
- * 408考研真题演示：分支预测器
+ * 408真题演示：分支预测器
  */
 void pipeline_exam_demo_branch_prediction(void);
 
 /**
- * 408考研真题演示：指令调度优化
+ * 408真题演示：指令调度优化
  */
 void pipeline_exam_demo_instruction_scheduling(void);
 

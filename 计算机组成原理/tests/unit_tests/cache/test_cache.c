@@ -16,7 +16,7 @@
  * 1. 缓存初始化和配置
  * 2. 基本读写操作
  * 3. 命中率统计
- * 4. 408考研场景演示
+ * 4. 408场景演示
  */
 
 // 测试统计结构
@@ -246,10 +246,10 @@ bool test_cache_statistics(void) {
 }
 
 /**
- * 408考研场景演示
+ * 408场景演示
  */
 void demo_408_exam_scenarios(void) {
-    printf("\n=== 408考研场景演示 ===\n");
+    printf("\n=== 408场景演示 ===\n");
     
     // 场景1：直接映射缓存
     printf("\n【场景1】直接映射缓存分析\n");
@@ -349,7 +349,7 @@ int main(void) {
     // 运行所有测试
     run_all_cache_tests();
     
-    // 运行408考研演示
+    // 运行408演示
     demo_408_exam_scenarios();
     
     return g_test_stats.failed_tests == 0 ? 0 : 1;

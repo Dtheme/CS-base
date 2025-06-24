@@ -6,7 +6,7 @@ int main(void) {
     // 忽略命令行参数
     printf("========== 缓存系统模拟器 ==========\n");
     printf("版本: 1.0\n");
-    printf("适用: 408考研 - 计算机组成原理\n");
+    printf("适用: 40 - 计算机组成原理\n");
     printf("功能: 高速缓存设计、映射方式、替换算法仿真\n");
     printf("\n");
     
@@ -15,7 +15,7 @@ int main(void) {
     printf("- LRU、FIFO、Random替换算法\n");
     printf("- 写回、写通策略\n");
     printf("- 详细的性能统计\n");
-    printf("- 408真题场景测试\n");
+    printf("- 考试题型场景测试\n");
     printf("\n");
     
     printf("使用方法:\n");

@@ -16,7 +16,7 @@
  * 2. 数据冲突检测和处理
  * 3. 分支预测测试
  * 4. 性能指标计算
- * 5. 408考研典型场景
+ * 5. 408典型场景
  */
 
 // 测试用的简单程序
@@ -226,12 +226,12 @@ void test_performance_stats() {
 }
 
 /**
- * 408考研场景测试：性能计算
+ * 408场景测试：性能计算
  */
 void test_408_performance_calculation() {
-    printf("\n=== 408考研场景：性能计算 ===\n");
+    printf("\n=== 408场景：性能计算 ===\n");
     
-    // 模拟408考研题目：计算流水线性能指标
+    // 模拟408题目：计算流水线性能指标
     pipeline_t pipeline;
     pipeline_init(&pipeline);
     
@@ -258,7 +258,7 @@ void test_408_performance_calculation() {
     printf("   平均CPI: %.3f\n", stats.cpi);
     printf("   流水线效率: %.2f%%\n", stats.efficiency);
     
-    // 验证408考研常见的性能指标
+    // 验证408常见的性能指标
     TEST_ASSERT(stats.cpi > 1.0, "存在冲突导致CPI > 1");
     TEST_ASSERT(stats.efficiency < 100.0, "冲突导致效率下降");
     
@@ -270,10 +270,10 @@ void test_408_performance_calculation() {
 }
 
 /**
- * 408考研场景测试：冲突分析
+ * 408场景测试：冲突分析
  */
 void test_408_hazard_analysis() {
-    printf("\n=== 408考研场景：冲突分析 ===\n");
+    printf("\n=== 408场景：冲突分析 ===\n");
     
     pipeline_t pipeline;
     pipeline_init(&pipeline);
