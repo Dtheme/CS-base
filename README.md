@@ -1,6 +1,6 @@
 # CS-base
 
-### 涉及内容 
+### 内容 
 ```
 CS-base/
 ├── 高等数学 
@@ -18,7 +18,7 @@ CS-base/
 └── 操作系统/ (暂未完成)
 ```
 
-## 主要参考书目
+## 主要参考
 
 ### 数学基础
 - 《高等数学辅导》- 武忠祥
@@ -33,7 +33,7 @@ CS-base/
 - 《现代操作系统》(Modern Operating Systems) - Andrew S. Tanenbaum
 - 《计算机网络：自顶向下方法》(Computer Networking: A Top-Down Approach) - James F. Kurose, Keith W. Ross
   
-## 涉及到的代码和文档环境要求
+## 代码和文档环境要求
 
 ### 编译环境
 - GCC 4.8+ 或 Clang 3.4+
