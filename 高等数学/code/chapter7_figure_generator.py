@@ -1,8 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-第7章重积分图片生成器
-生成高质量的中文标注图片
+第7章重积分图片生成
 """
 
 import matplotlib.pyplot as plt

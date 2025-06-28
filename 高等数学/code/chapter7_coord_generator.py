@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-第7章坐标系图片生成器
+第7章坐标系图片
 """
 
 import matplotlib.pyplot as plt
