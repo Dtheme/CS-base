@@ -19,6 +19,8 @@ import matplotlib.pyplot as plt
 import matplotlib.font_manager as fm
 import numpy as np
 import os
+from matplotlib.patches import Circle
+import matplotlib.patches as patches
 
 class MathFigureTemplate:
     """数学解题作图标准模板类"""
@@ -37,22 +39,33 @@ class MathFigureTemplate:
     def setup_colors(self):
         """设置标准配色方案"""
         # 主色调（优雅柔和但对比清晰）
-        self.colors = {
-            'curve1': '#2E5BBA',      # 深海蓝 - 主曲线
-            'curve2': '#C8102E',      # 深红 - 辅助曲线  
-            'vertical': '#228B22',    # 森林绿 - 垂直线
-            'region1': '#FFE4E6',     # 淡玫瑰 - 区域1
-            'region2': '#E6F3FF',     # 淡天蓝 - 区域2
-            'demo1': '#FF69B4',       # 热粉 - 示例线1
-            'demo2': '#4169E1',       # 皇家蓝 - 示例线2
-            'point': '#333333',       # 深灰 - 关键点
-        }
+        self.curve_color1 = '#2E5BBA'     # 深海蓝 - 主曲线
+        self.curve_color2 = '#C8102E'     # 深红 - 辅助曲线
+        self.vertical_color = '#228B22'   # 森林绿 - 垂直线
+        
+        # 区域填充颜色
+        self.region1_color = '#FFE4E6'    # 淡玫瑰 - 区域1
+        self.region2_color = '#E6F3FF'    # 淡天蓝 - 区域2
+        
+        # 示例线颜色
+        self.demo_color1 = '#FF69B4'      # 热粉 - 示例线1
+        self.demo_color2 = '#4169E1'      # 皇家蓝 - 示例线2
         
         # 文字框配色
         self.text_colors = {
             'expression': {'face': '#F8F9FA', 'edge': '#DEE2E6'},
-            'analysis': {'face': '#D4F7D4', 'edge': '#28A745'}, 
-            'relation': {'face': '#E8E8F5', 'edge': '#6A6A9A'},
+            'analysis': {'face': '#D4F7D4', 'edge': '#28A745'},
+            'relation': {'face': '#E8E8F5', 'edge': '#6A6A9A'}
+        }
+        
+        # 极坐标专用配色
+        self.polar_colors = {
+            'grid_circle': '#E0E0E0',     # 极径圆 - 浅灰色
+            'grid_angle': '#E0E0E0',      # 角度线 - 浅灰色  
+            'region_circle': '#FFE4E6',   # 圆形区域 - 淡玫瑰
+            'region_annular': '#E6F3FF',  # 环形区域 - 淡天蓝
+            'boundary_main': '#2E5BBA',   # 主边界 - 深海蓝
+            'boundary_aux': '#C8102E',    # 辅助边界 - 深红
         }
         
     def setup_layout(self):
@@ -147,7 +160,7 @@ class MathFigureTemplate:
             functions: 函数列表 [y1_data, y2_data, ...]
             labels: 标签列表 ['label1', 'label2', ...]
         """
-        curve_colors = [self.colors['curve1'], self.colors['curve2']]
+        curve_colors = [self.curve_color1, self.curve_color2]
         
         for i, (y_data, label) in enumerate(zip(functions, labels)):
             color = curve_colors[i % len(curve_colors)]
@@ -156,7 +169,7 @@ class MathFigureTemplate:
     
     def plot_vertical_line(self, ax, x_value, label):
         """绘制垂直线"""
-        ax.axvline(x=x_value, color=self.colors['vertical'], 
+        ax.axvline(x=x_value, color=self.vertical_color, 
                   linewidth=3.5, label=label, zorder=5)
     
     def fill_regions(self, ax, regions_data):
@@ -168,8 +181,8 @@ class MathFigureTemplate:
                 {'x': x_range, 'y_lower': y_lower, 'y_upper': y_upper, 
                  'color_key': 'region1', 'label': 'label'}
         """
-        region_colors = [self.colors['region1'], self.colors['region2']]
-        edge_colors = [self.colors['curve2'], self.colors['curve1']]
+        region_colors = [self.region1_color, self.region2_color]
+        edge_colors = [self.curve_color2, self.curve_color1]
         
         for i, region in enumerate(regions_data):
             color = region_colors[i % len(region_colors)]
@@ -193,7 +206,7 @@ class MathFigureTemplate:
             position = self.point_positions[point_data['position_key']]
             
             # 绘制点
-            ax.plot(point[0], point[1], 'o', color=self.colors['point'],
+            ax.plot(point[0], point[1], 'o', color=self.curve_color1,
                    markersize=10, markeredgecolor='white', 
                    markeredgewidth=2, zorder=10)
             
@@ -212,7 +225,7 @@ class MathFigureTemplate:
             demo_data: 示例线数据列表，每个元素包含:
                 {'x': x_value, 'y_range': (y_lower, y_upper), 'color_key': 'demo1'}
         """
-        demo_colors = [self.colors['demo1'], self.colors['demo2']]
+        demo_colors = [self.demo_color1, self.demo_color2]
         light_colors = ['#FFF0F5', '#F0F8FF']
         
         for i, demo in enumerate(demo_data):
@@ -341,6 +354,202 @@ class MathFigureTemplate:
         print("- 定期检查不同分辨率下的显示效果")
         print("- 统一使用标准配色方案")
 
+    def create_polar_figure(self, radius=2):
+        """创建极坐标专用图形和坐标系"""
+        fig, ax = plt.subplots(1, 1, figsize=self.layout['figsize'])
+        
+        # 根据积分区域半径动态调整坐标轴范围
+        margin = 0.5
+        ax.set_xlim(-(radius + margin), radius + margin + 0.5)
+        ax.set_ylim(-(radius + margin), radius + margin + 0.5)
+        ax.set_aspect('equal')  # 必须保持等比例
+        
+        # x-y-o坐标系布局标准
+        ax.axhline(y=0, color='black', linewidth=1.0, alpha=0.8)
+        ax.axvline(x=0, color='black', linewidth=1.0, alpha=0.8)
+        ax.plot(0, 0, 'ko', markersize=6, zorder=5)
+        
+        # 原点标记
+        ax.text(0.1, -0.2, 'O', fontsize=14, weight='bold', color='#333333')
+        
+        # 网格和标签
+        ax.grid(True, alpha=0.3, linestyle='-', linewidth=0.8)
+        ax.set_xlabel('x', fontsize=17, weight='bold', color='#333333')
+        ax.set_ylabel('y', fontsize=17, weight='bold', color='#333333')
+        
+        return fig, ax
+        
+    def setup_polar_text_positions(self, radius):
+        """根据圆形区域大小动态调整文字位置"""
+        margin = 0.2
+        return {
+            'expression_title': (-(radius + margin + 0.1), radius + margin - 0.3),
+            'expression_content': (-(radius + margin + 0.1), radius + margin - 0.6),
+            'analysis': (-(radius + margin + 0.1), radius + margin - 1.1),
+            'relation': (-(radius + margin + 0.1), radius + margin - 1.5),
+        }
+        
+    def setup_polar_point_positions(self, radius):
+        """针对圆形区域优化的点标记位置"""
+        outer = radius + 0.3
+        return {
+            'center': (-(radius + 0.4), -(radius + 0.4)),        # 原点
+            'right_axis': (outer, -0.15),                        # 右侧轴点
+            'top_axis': (-0.15, outer),                          # 上方轴点
+            'boundary': (radius * 0.7, -0.3),                   # 边界点
+        }
+        
+    def draw_simplified_polar_grid(self, ax, max_radius):
+        """绘制简化的极坐标网格"""
+        # 简化的极径圆 - 只绘制关键半径
+        key_radii = [max_radius * 0.5, max_radius]
+        for r in key_radii:
+            circle = plt.Circle((0, 0), r, fill=False, 
+                              color=self.polar_colors['grid_circle'], 
+                              linewidth=1, alpha=0.7)
+            ax.add_patch(circle)
+        
+        # 主要角度线 - 只绘制四个方向
+        main_angles = [0, np.pi/2, np.pi, 3*np.pi/2]
+        for angle in main_angles:
+            x_end = (max_radius + 0.2) * np.cos(angle)
+            y_end = (max_radius + 0.2) * np.sin(angle)
+            ax.plot([0, x_end], [0, y_end], 
+                   color=self.polar_colors['grid_angle'], 
+                   linewidth=1, alpha=0.7)
+    
+    def add_text_with_bbox(self, ax, text, position, bbox_style='expression'):
+        """添加带边框的文字"""
+        color_config = self.text_colors[bbox_style]
+        ax.text(position[0], position[1], text,
+               fontsize=12, weight='bold',
+               bbox=dict(boxstyle='round,pad=0.4',
+                        facecolor=color_config['face'],
+                        edgecolor=color_config['edge'],
+                        alpha=0.9))
+                        
+    def add_point_annotation(self, ax, point, label, position, color='#333333'):
+        """添加关键点标记和注释"""
+        # 绘制点
+        ax.plot(point[0], point[1], 'o', 
+               color=color, markersize=10,
+               markeredgecolor='white', markeredgewidth=2, zorder=10)
+        
+        # 添加标注
+        ax.annotate(label, point, xytext=position,
+                   fontsize=12, weight='bold',
+                   bbox=dict(boxstyle='round,pad=0.3',
+                            facecolor='white', edgecolor='gray', alpha=0.9),
+                   arrowprops=dict(arrowstyle='->',
+                                  color='gray', lw=1.5))
+                                  
+    def draw_curve(self, ax, x, y, color, label, linewidth=3.5):
+        """绘制主要曲线"""
+        ax.plot(x, y, color=color, linewidth=linewidth, label=label, zorder=5)
+        
+    def fill_region(self, ax, x, y_lower, y_upper, color, label, alpha=0.6):
+        """填充积分区域"""
+        ax.fill_between(x, y_lower, y_upper,
+                       alpha=alpha, color=color,
+                       edgecolor=self.curve_color1, linewidth=1.5,
+                       label=label, zorder=2)
+                       
+    def draw_vertical_line(self, ax, x_value, color, label, linewidth=3.5):
+        """绘制垂直线"""
+        ax.axvline(x=x_value, color=color, linewidth=linewidth, 
+                  label=label, zorder=5)
+                  
+    def add_demo_line(self, ax, x_value, y_range, color, label, alpha=0.8):
+        """添加示例线"""
+        ax.axvline(x=x_value, color=color, linewidth=2, 
+                  linestyle='--', alpha=alpha, zorder=3)
+        ax.plot([x_value, x_value], y_range, 
+               color=color, linewidth=5, alpha=alpha, zorder=4)
+        
+        # 添加底部标注
+        ax.annotate(f'x = {x_value}', (x_value, -0.7), 
+                   xytext=(x_value + 0.2, -0.3),
+                   fontsize=11, color=color, weight='bold',
+                   bbox=dict(boxstyle='round,pad=0.25', 
+                            facecolor=self.region1_color, 
+                            edgecolor=color, alpha=0.9),
+                   arrowprops=dict(arrowstyle='->', 
+                                  color=color, lw=1.2))
+                                  
+    def fill_polar_region(self, ax, region_type, radius, **kwargs):
+        """填充极坐标区域"""
+        if region_type == 'circle':
+            # 圆盘区域：0 ≤ r ≤ R, 0 ≤ θ ≤ 2π
+            theta = np.linspace(0, 2*np.pi, 100)
+            x_circle = radius * np.cos(theta)
+            y_circle = radius * np.sin(theta)
+            ax.fill(x_circle, y_circle, alpha=0.6, 
+                   color=self.polar_colors['region_circle'], 
+                   label=kwargs.get('label', '积分区域'))
+                   
+        elif region_type == 'sector':
+            # 扇形区域：0 ≤ r ≤ R, α ≤ θ ≤ β
+            alpha = kwargs.get('alpha', 0)
+            beta = kwargs.get('beta', np.pi/2)
+            theta_sector = np.linspace(alpha, beta, 50)
+            
+            # 扇形顶点
+            x_sector = np.concatenate([[0], radius * np.cos(theta_sector), [0]])
+            y_sector = np.concatenate([[0], radius * np.sin(theta_sector), [0]])
+            ax.fill(x_sector, y_sector, alpha=0.6,
+                   color=self.polar_colors['region_circle'],
+                   label=kwargs.get('label', '扇形区域'))
+                   
+        elif region_type == 'annular':
+            # 环形区域：R₁ ≤ r ≤ R₂, 0 ≤ θ ≤ 2π
+            inner_radius = kwargs.get('inner_radius', radius * 0.5)
+            theta = np.linspace(0, 2*np.pi, 100)
+            
+            # 外圆
+            x_outer = radius * np.cos(theta)
+            y_outer = radius * np.sin(theta)
+            # 内圆
+            x_inner = inner_radius * np.cos(theta)
+            y_inner = inner_radius * np.sin(theta)
+            
+            ax.fill(x_outer, y_outer, alpha=0.6,
+                   color=self.polar_colors['region_annular'])
+            ax.fill(x_inner, y_inner, alpha=1.0, color='white')
+            ax.plot(x_outer, y_outer, color=self.polar_colors['boundary_main'], 
+                   linewidth=2, label='外边界')
+            ax.plot(x_inner, y_inner, color=self.polar_colors['boundary_aux'], 
+                   linewidth=2, label='内边界')
+                   
+    def add_radius_annotation(self, ax, radius):
+        """添加半径标注"""
+        # 画半径线
+        ax.plot([0, radius], [0, 0], color=self.polar_colors['boundary_main'], 
+               linewidth=2, linestyle='--', alpha=0.8)
+        
+        # 半径标注
+        ax.text(radius/2, 0.1, f'r = {radius}', 
+               fontsize=12, weight='bold', color=self.polar_colors['boundary_main'],
+               bbox=dict(boxstyle='round,pad=0.2', 
+                        facecolor='white', edgecolor=self.polar_colors['boundary_main'], 
+                        alpha=0.9))
+                        
+    def polar_quality_check(self):
+        """极坐标图像专用质量检查"""
+        polar_checklist = [
+            "ax.set_aspect('equal') 已设置",
+            "无上方大量空白",
+            "只有必要的极径圆和角度线",
+            "原点(0,0)清晰可见，标记为'O'",
+            "半径标注清晰",
+            "文字位置适应圆形区域",
+            "积分区域填充色清晰，边界明显",
+            "数学表达式采用极坐标形式"
+        ]
+        
+        print("=== 极坐标图像质量检查清单 ===")
+        for i, item in enumerate(polar_checklist, 1):
+            print(f"{i}. [ ] {item}")
+            
 
 def demo_usage():
     """演示模板使用方法"""
