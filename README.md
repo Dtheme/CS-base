@@ -5,7 +5,8 @@
 CS-base/
 ├── 高等数学 
 │   └── docs/ (理论文档)
-├── 线性代数(暂未完成)
+├── 线性代数 ✅
+│   └── docs/ (理论文档)
 ├── 概率论与数理统计(暂未完成) 
 ├── 数据结构算法 
 │   ├── docs/ (理论文档)
@@ -35,8 +36,9 @@ CS-base/
   
 ### 视频
 - 高等数学基础：[b站up：一高数](https://space.bilibili.com/1035929235?spm_id_from=333.788.upinfo.detail.click)
-- 高等数学基础：[b站up：考研数学武忠祥老师](https://space.bilibili.com/688379639)
-  
+- 高等数学基础：[b站数学武忠祥视频](https://space.bilibili.com/688379639)
+- 线性代数：[b站李永乐视频](https://www.bilibili.com/cheese/play/ep1446849?csource=Hp_searchresult&spm_id_from=333.337.0.0)
+
 ## 涉及到的代码和文档环境要求
 
 ### 编译环境
