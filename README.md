@@ -19,7 +19,7 @@ CS-base/
 └── 操作系统/ ( x 暂未完成)
 ```
 
-`补充说明：由于github的markdown对部分LaTeX支持并非完美，使用github进行阅读,后续会针对github的markdown格式进行一次优化，暂时没有太多时间`
+`补充说明：由于github的markdown对部分LaTeX支持并非完美，使用github进行阅读可能会有一部分LaTeX格式不能渲染出来,后续会针对github的markdown格式进行一次优化，暂时没有太多时间`
 ## 主要参考
 
 ### 书目
