@@ -19,6 +19,7 @@ CS-base/
 └── 操作系统/ ( x 暂未完成)
 ```
 
+`补充说明：由于github的markdown对部分LaTeX支持并非完美，使用github进行阅读 
 ## 主要参考
 
 ### 书目
@@ -48,7 +49,7 @@ CS-base/
 
 ### 使用方法
 - 代码类：本人使用VS Code
-- 文档类工具：支持LaTeX渲染的Markdown编辑器，或者VS Code使用支持LaTeX的markdown插件
+- 文档类工具：支持LaTeX渲染的Markdown编辑器，或者VS Code使用支持LaTeX的markdown插件，目前我使用的是[LaTeX Workshop]（[LaTeX Workshop](https://marketplace.visualstudio.com/items?itemName=James-Yu.latex-workshop)）
 
 
 ## 贡献
