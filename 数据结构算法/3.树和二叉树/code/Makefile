@@ -9,20 +9,20 @@ INCLUDES = -I.
 
 # 目录设置
 BUILDDIR = ../../../build/3.树和二叉树
-OBJDIR =$(BUILDDIR)/obj
-BINDIR =$(BUILDDIR)/bin
+OBJDIR = $(BUILDDIR)/obj
+BINDIR = $(BUILDDIR)/bin
 
 # 源文件
-SOURCES = bintree.c bst.c rbtree.c heap.c unionfind.c huffman.c btree.c
-HEADERS = bintree.h bst.h rbtree.h heap.h unionfind.h huffman.h btree.h bplustree.h  
-TEST_SOURCES = test_bintree.c test_bst.c test_rbtree.c test_heap.c test_unionfind.c test_huffman.c test_btree.c
+SOURCES = bintree.c bst.c rbtree.c heap.c unionfind.c huffman.c btree.c bitree.c
+HEADERS = bintree.h bst.h rbtree.h heap.h unionfind.h huffman.h btree.h bplustree.h bitree.h  
+TEST_SOURCES = test_bintree.c test_bst.c test_rbtree.c test_heap.c test_unionfind.c test_huffman.c test_btree.c test_bitree.c
 
 # 目标文件
-OBJECTS =$(SOURCES:%.c=$(OBJDIR)/%.o)
-TEST_OBJECTS =$(TEST_SOURCES:%.c=$(OBJDIR)/%.o)
+OBJECTS = $(SOURCES:%.c=$(OBJDIR)/%.o)
+TEST_OBJECTS = $(TEST_SOURCES:%.c=$(OBJDIR)/%.o)
 
 # 可执行文件
-EXECUTABLES =$(BINDIR)/test_bintree$(BINDIR)/test_bst$(BINDIR)/test_rbtree$(BINDIR)/test_heap$(BINDIR)/test_unionfind$(BINDIR)/test_huffman$(BINDIR)/test_btree
+EXECUTABLES = $(BINDIR)/test_bintree $(BINDIR)/test_bst $(BINDIR)/test_rbtree $(BINDIR)/test_heap $(BINDIR)/test_unionfind $(BINDIR)/test_huffman $(BINDIR)/test_btree $(BINDIR)/test_bitree
 
 # 颜色定义
 RED = \033[0;31m
@@ -38,57 +38,63 @@ NC = \033[0m # No Color
 .PHONY: all clean help test run install debug format info
 
 # 默认目标：构建所有测试程序
-all: directories$(EXECUTABLES)
+all: directories $(EXECUTABLES)
 	@echo "$(GREEN)✅ 第3章所有程序编译完成！$(NC)"
 	@echo "$(CYAN)📁 输出目录:$(BUILDDIR)$(NC)"
 
 # 创建必要的目录
 directories:
-	@mkdir -p$(OBJDIR)$(BINDIR)
+	@mkdir -p $(OBJDIR) $(BINDIR)
 
 # ============= 单独编译规则 =============
 
 # 编译二叉树测试程序
-$(BINDIR)/test_bintree:$(OBJDIR)/bintree.o$(OBJDIR)/test_bintree.o
+$(BINDIR)/test_bintree: $(OBJDIR)/bintree.o $(OBJDIR)/test_bintree.o
 	@echo "$(BLUE)🔗 链接二叉树测试程序...$(NC)"
-	$(CC)$(CFLAGS)$^ -o$@
+	$(CC) $(CFLAGS) $^ -o $@
 	@echo "$(GREEN)✅ test_bintree 编译完成$(NC)"
 
 # 编译二叉搜索树测试程序
-$(BINDIR)/test_bst:$(OBJDIR)/bst.o$(OBJDIR)/test_bst.o
+$(BINDIR)/test_bst: $(OBJDIR)/bst.o $(OBJDIR)/test_bst.o
 	@echo "$(BLUE)🔗 链接二叉搜索树测试程序...$(NC)"
-	$(CC)$(CFLAGS)$^ -o$@
+	$(CC) $(CFLAGS) $^ -o $@
 	@echo "$(GREEN)✅ test_bst 编译完成$(NC)"
 
 # 编译红黑树测试程序
-$(BINDIR)/test_rbtree:$(OBJDIR)/rbtree.o$(OBJDIR)/test_rbtree.o
+$(BINDIR)/test_rbtree: $(OBJDIR)/rbtree.o $(OBJDIR)/test_rbtree.o
 	@echo "$(BLUE)🔗 链接红黑树测试程序...$(NC)"
-	$(CC)$(CFLAGS)$^ -o$@
+	$(CC) $(CFLAGS) $^ -o $@
 	@echo "$(GREEN)✅ test_rbtree 编译完成$(NC)"
 
 # 编译堆测试程序
-$(BINDIR)/test_heap:$(OBJDIR)/heap.o$(OBJDIR)/test_heap.o
+$(BINDIR)/test_heap: $(OBJDIR)/heap.o $(OBJDIR)/test_heap.o
 	@echo "$(BLUE)🔗 链接堆测试程序...$(NC)"
-	$(CC)$(CFLAGS)$^ -o$@
+	$(CC) $(CFLAGS) $^ -o $@
 	@echo "$(GREEN)✅ test_heap 编译完成$(NC)"
 
 # 编译并查集测试程序
-$(BINDIR)/test_unionfind:$(OBJDIR)/unionfind.o$(OBJDIR)/test_unionfind.o
+$(BINDIR)/test_unionfind: $(OBJDIR)/unionfind.o $(OBJDIR)/test_unionfind.o
 	@echo "$(BLUE)🔗 链接并查集测试程序...$(NC)"
-	$(CC)$(CFLAGS)$^ -o$@
+	$(CC) $(CFLAGS) $^ -o $@
 	@echo "$(GREEN)✅ test_unionfind 编译完成$(NC)"
 
 # 编译哈夫曼树测试程序
-$(BINDIR)/test_huffman:$(OBJDIR)/huffman.o$(OBJDIR)/test_huffman.o
+$(BINDIR)/test_huffman: $(OBJDIR)/huffman.o $(OBJDIR)/test_huffman.o
 	@echo "$(BLUE)🔗 链接哈夫曼树测试程序...$(NC)"
-	$(CC)$(CFLAGS)$^ -o$@
+	$(CC) $(CFLAGS) $^ -o $@
 	@echo "$(GREEN)✅ test_huffman 编译完成$(NC)"
 
 # 编译B树测试程序
-$(BINDIR)/test_btree:$(OBJDIR)/btree.o$(OBJDIR)/test_btree.o
+$(BINDIR)/test_btree: $(OBJDIR)/btree.o $(OBJDIR)/test_btree.o
 	@echo "$(BLUE)🔗 链接B树测试程序...$(NC)"
-	$(CC)$(CFLAGS)$^ -o$@
+	$(CC) $(CFLAGS) $^ -o $@
 	@echo "$(GREEN)✅ test_btree 编译完成$(NC)"
+
+# 编译树状数组测试程序
+$(BINDIR)/test_bitree: $(OBJDIR)/bitree.o $(OBJDIR)/test_bitree.o
+	@echo "$(BLUE)🔗 链接树状数组测试程序...$(NC)"
+	$(CC) $(CFLAGS) $^ -o $@
+	@echo "$(GREEN)✅ test_bitree 编译完成$(NC)"
 
 
 
@@ -96,9 +102,9 @@ $(BINDIR)/test_btree:$(OBJDIR)/btree.o$(OBJDIR)/test_btree.o
 
 # ============= 目标文件编译规则 =============
 
-$(OBJDIR)/%.o: %.c$(HEADERS)
+$(OBJDIR)/%.o: %.c $(HEADERS)
 	@echo "$(YELLOW)🔨 编译$<...$(NC)"
-	$(CC)$(CFLAGS)$(INCLUDES) -c$< -o$@
+	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 # ============= 测试运行 =============
 
@@ -106,48 +112,54 @@ $(OBJDIR)/%.o: %.c$(HEADERS)
 test: all
 	@echo "$(PURPLE)🧪 运行所有树数据结构测试...$(NC)"
 	@echo "$(CYAN)==================== 二叉树测试 ====================$(NC)"
-	@if [ -f$(BINDIR)/test_bintree ]; then$(BINDIR)/test_bintree; fi
+	@if [ -f $(BINDIR)/test_bintree ]; then $(BINDIR)/test_bintree; fi
 	@echo "$(CYAN)================== 二叉搜索树测试 ==================$(NC)"
-	@if [ -f$(BINDIR)/test_bst ]; then$(BINDIR)/test_bst; fi
+	@if [ -f $(BINDIR)/test_bst ]; then $(BINDIR)/test_bst; fi
 	@echo "$(CYAN)==================== 红黑树测试 ====================$(NC)"
-	@if [ -f$(BINDIR)/test_rbtree ]; then$(BINDIR)/test_rbtree; fi
+	@if [ -f $(BINDIR)/test_rbtree ]; then $(BINDIR)/test_rbtree; fi
 	@echo "$(CYAN)===================== 堆测试 =====================$(NC)"
-	@if [ -f$(BINDIR)/test_heap ]; then$(BINDIR)/test_heap; fi
+	@if [ -f $(BINDIR)/test_heap ]; then $(BINDIR)/test_heap; fi
 	@echo "$(CYAN)=================== 并查集测试 ====================$(NC)"
-	@if [ -f$(BINDIR)/test_unionfind ]; then$(BINDIR)/test_unionfind; fi
+	@if [ -f $(BINDIR)/test_unionfind ]; then $(BINDIR)/test_unionfind; fi
 	@echo "$(CYAN)================== 哈夫曼树测试 ===================$(NC)"
-	@if [ -f$(BINDIR)/test_huffman ]; then$(BINDIR)/test_huffman; fi
+	@if [ -f $(BINDIR)/test_huffman ]; then $(BINDIR)/test_huffman; fi
 	@echo "$(CYAN)==================== B树测试 =====================$(NC)"
-	@if [ -f$(BINDIR)/test_btree ]; then$(BINDIR)/test_btree; fi
+	@if [ -f $(BINDIR)/test_btree ]; then $(BINDIR)/test_btree; fi
+	@echo "$(CYAN)================== 树状数组测试 ===================$(NC)"
+	@if [ -f $(BINDIR)/test_bitree ]; then $(BINDIR)/test_bitree; fi
 
 # 运行单个测试
-test-bintree:$(BINDIR)/test_bintree
+test-bintree: $(BINDIR)/test_bintree
 	@echo "$(PURPLE)🧪 运行二叉树测试...$(NC)"
 	$(BINDIR)/test_bintree
 
-test-bst:$(BINDIR)/test_bst
+test-bst: $(BINDIR)/test_bst
 	@echo "$(PURPLE)🧪 运行二叉搜索树测试...$(NC)"
 	$(BINDIR)/test_bst
 
-test-rbtree:$(BINDIR)/test_rbtree
+test-rbtree: $(BINDIR)/test_rbtree
 	@echo "$(PURPLE)🧪 运行红黑树测试...$(NC)"
 	$(BINDIR)/test_rbtree
 
-test-heap:$(BINDIR)/test_heap
+test-heap: $(BINDIR)/test_heap
 	@echo "$(PURPLE)🧪 运行堆测试...$(NC)"
 	$(BINDIR)/test_heap
 
-test-unionfind:$(BINDIR)/test_unionfind
+test-unionfind: $(BINDIR)/test_unionfind
 	@echo "$(PURPLE)🧪 运行并查集测试...$(NC)"
 	$(BINDIR)/test_unionfind
 
-test-huffman:$(BINDIR)/test_huffman
+test-huffman: $(BINDIR)/test_huffman
 	@echo "$(PURPLE)🧪 运行哈夫曼树测试...$(NC)"
 	$(BINDIR)/test_huffman
 
-test-btree:$(BINDIR)/test_btree
+test-btree: $(BINDIR)/test_btree
 	@echo "$(PURPLE)🧪 运行B树测试...$(NC)"
 	$(BINDIR)/test_btree
+
+test-bitree: $(BINDIR)/test_bitree
+	@echo "$(PURPLE)🧪 运行树状数组测试...$(NC)"
+	$(BINDIR)/test_bitree
 
 # ============= 调试版本 =============
 
@@ -157,16 +169,19 @@ debug: clean all
 
 # 使用gdb调试
 gdb-bintree: debug
-	gdb$(BINDIR)/test_bintree
+	gdb $(BINDIR)/test_bintree
 
 gdb-bst: debug
-	gdb$(BINDIR)/test_bst
+	gdb $(BINDIR)/test_bst
 
 gdb-rbtree: debug
-	gdb$(BINDIR)/test_rbtree
+	gdb $(BINDIR)/test_rbtree
 
 gdb-heap: debug
-	gdb$(BINDIR)/test_heap
+	gdb $(BINDIR)/test_heap
+
+gdb-bitree: debug
+	gdb $(BINDIR)/test_bitree
 
 # ============= 内存检查 =============
 
