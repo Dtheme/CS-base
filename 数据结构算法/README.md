@@ -4,9 +4,7 @@
 1. 算法导论
 2. 王道论坛-数据结构
 
->  **以主Makefile为核心的完整 数据结构学习项目**
-
-##  项目概述
+##  概述
 
 本项目是专为 数据结构算法复习而建立的**完整学习体系**，采用**统一构建系统**管理，包含：
 
@@ -15,7 +13,7 @@
 -  **测试程序**：全面的测试用例和性能分析
 -  **统一构建**：一键编译、测试、验证所有章节
 
-##  工程结构
+##  结构
 
 ```
 数据结构算法/
@@ -65,29 +63,29 @@
 
 ##  快速开始
 
-### ⚡ 一键操作
+### 一键操作
 
 ```bash
 #  查看项目信息和章节状态
 make info
 
-# 🔨 构建所有章节（默认目标）
+# 构建所有章节（默认目标）
 make
 
-#  运行所有测试
+# 运行所有测试
 make test-all
 
-# 🧹 清理所有构建文件
+# 清理所有构建文件
 make clean-all
 
-#  快速验证所有代码语法
+# 快速验证所有代码语法
 make verify
 ```
 
 ###  单章节操作
 
 ```bash
-# 🔨 构建指定章节
+# 构建指定章节
 make build-chapter CHAPTER=1.线性表
 make build-chapter CHAPTER=2.栈和队列
 make build-chapter CHAPTER=4.图数据结构
@@ -97,33 +95,33 @@ make test-chapter CHAPTER=1.线性表
 make test-chapter CHAPTER=2.栈和队列
 make test-chapter CHAPTER=4.图数据结构
 
-# 🧹 清理指定章节
+# 清理指定章节
 make clean-chapter CHAPTER=1.线性表
 ```
 
 ###  开发者工具
 
 ```bash
-#   查看代码统计信息
+# 查看代码统计信息
 make stats
 
-#  格式化所有代码
+# 格式化所有代码
 make format
 
-#  检查开发工具安装情况
+# 检查开发工具安装情况
 make install-tools
 
-#  创建发布包
+# 创建发布包
 make dist
 ```
 
 ###  完整工作流程
 
 ```bash
-#  完整开发流程（清理→验证→构建→测试）
+# 完整开发流程（清理→验证→构建→测试）
 make clean-all && make verify && make build-all && make test-all
 
-#  查看完整帮助信息
+# 查看完整帮助信息
 make help
 ```
 
@@ -156,7 +154,7 @@ make test-chapter CHAPTER=2.栈和队列
 make test-chapter CHAPTER=4.图数据结构
 ```
 
-###  场景3：代码开发
+###  场景3：添加代码
 ```bash
 # 验证代码修改（语法检查）
 make verify
@@ -168,7 +166,7 @@ make format
 make build-chapter CHAPTER=1.线性表
 ```
 
-###  场景4：项目维护
+###  场景4：维护
 ```bash
 # 查看代码统计
 make stats
@@ -229,7 +227,7 @@ make clean-all
 make build-all
 ```
 
-**🔒 权限问题**：
+** 权限问题**：
 ```bash
 # 确保文件可执行权限
 chmod +x Makefile
@@ -249,7 +247,7 @@ pwd  # 应该显示 .../数据结构算法
 ls   # 应该看到 Makefile README.md 等文件
 ```
 
-###  调试模式
+### 调试模式
 ```bash
 # 详细输出构建过程
 make build-all VERBOSE=1
