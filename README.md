@@ -28,7 +28,7 @@ CS-base/
 - 《数据结构考研复习指导》- 王道论坛
 - 《计算机组成原理考研复习指导》- 王道论坛
 - 《操作系统考研复习指导》- 王道论坛
-- 《计算机网络：自顶向下方法》(Computer Networking: A Top-Down Approach) - James F. Kurose, Keith W. Ross **主要教材**
+- 《计算机网络：自顶向下方法》(Computer Networking: A Top-Down Approach) - James F. Kurose, Keith W. Ross
 - 《计算机网络考研复习指导》- 王道论坛
 - 《算法导论》(Introduction to Algorithms) - Thomas H. Cormen, Charles E. Leiserson, Ronald L. Rivest, Clifford Stein
 - 《深入理解计算机系统》(Computer Systems: A Programmer's Perspective) - Randal E. Bryant, David R. O'Hallaron
