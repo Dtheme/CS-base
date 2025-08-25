@@ -38,7 +38,7 @@ CS-base/
 - 高等数学基础：[b站up：一高数](https://space.bilibili.com/1035929235?spm_id_from=333.788.upinfo.detail.click)
 - 高等数学基础：[b站数学武忠祥视频](https://space.bilibili.com/688379639)
 - 线性代数：[b站李永乐视频](https://www.bilibili.com/cheese/play/ep1446849?csource=Hp_searchresult&spm_id_from=333.337.0.0)
-- **计算机网络：[YouTube马萨诸塞大学：自顶向下方法](https://gaia.cs.umass.edu/kurose_ross/videos/1/) **
+- 计算机网络：[YouTube马萨诸塞大学：自顶向下方法](https://gaia.cs.umass.edu/kurose_ross/videos/1/) 
 ## 文档代码运行环境
 
 ### 编译环境
